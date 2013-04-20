@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   		<link rel="stylesheet" href="/Default.css" />
+        
+        <!-- BEGIN Syntax Highlighter -->
+        <link type="text/css" rel="stylesheet" href="/syntaxhighlighter/styles/shCore.css" /><link type="text/css" rel="stylesheet" href="/syntaxhighlighter/styles/shThemeDefault.css" />
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shCore.js"></script>
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushBash.js"></script> 
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushSql.js"></script>
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushVb.js"></script>
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushXml.js"></script> 
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushCSharp.js"></script> 
+        <script type="text/javascript" src="/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.all();
+        </script> 
+        <!-- END Syntax Highlighter --> 
+
+        <!--[if IE 5]>
+            <style type="text/css"> 
+                .twoColFixRtHdr #sidebar1 { width: 220px; }
+            </style>
+        <![endif]--><!--[if IE]>
+            <style type="text/css"> 
+                .twoColFixRtHdr #sidebar1 { padding-top: 30px; }
+                .twoColFixRtHdr #mainContent { zoom: 1; }
+            </style>
+        <![endif]-->
+        
+    </head>
+    <body class="twoColFixRtHdr">
+        <form name="aspnetForm" method="post" action="Example2.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTU0MjA3MjQ4NA9kFgJmD2QWAgIDD2QWBgIBDzwrAAkCAA8WBB4LXyFEYXRhQm91bmRnHg1OZXZlckV4cGFuZGVkZGQIFCsAAgUDMDowFCsAAhYMHgRUZXh0BQlIb21lIFBhZ2UeC05hdmlnYXRlVXJsBQEvHgxJbWFnZVRvb2xUaXAFCUhvbWUgUGFnZR4IRGF0YVBhdGgFAS8eCURhdGFCb3VuZGceCEV4cGFuZGVkZxQrAAMFBzA6MCwwOjEUKwACFgwfAgUFRGVtb3MfAwUHL2RlbW9zLx8EBQVEZW1vcx8FBQcvZGVtb3MvHwZnHwdnFCsADAUsMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NywwOjgsMDo5LDA6MTAUKwACFgwfAgUXWklQIENvZGVzIFdpdGhpbiBSYWRpdXMfAwUlL2RlbW9zL3ppcF9jb2RlX2Rpc3RhbmNlL0RlZmF1bHQuYXNweB8EBWJHZXR0aW5nIEFsbCBaSVAgQ29kZXMgV2l0aGluIEEgS25vd24gRGlzdGFuY2UgVG8gQSBHaXZlbiBQb2ludCAvIFpJUCBDb2RlIFZpYSBBU1AuTkVUIC8gU1FMIFNlcnZlch8FBSUvZGVtb3MvemlwX2NvZGVfZGlzdGFuY2UvZGVmYXVsdC5hc3B4HwZnHwdnFCsAAgUDMDowFCsAAhYMHwIFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwMFcWh0dHBzOi8vd3d3LmRvdWd2LmNvbS8yMDEyLzA0LzEwL2dldHRpbmctYWxsLXppcC1jb2Rlcy1pbi1hLWdpdmVuLXJhZGl1cy1mcm9tLWEta25vd24tcG9pbnQtemlwLWNvZGUtdmlhLWFzcC1uZXQvHwQFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwUFcWh0dHBzOi8vd3d3LmRvdWd2LmNvbS8yMDEyLzA0LzEwL2dldHRpbmctYWxsLXppcC1jb2Rlcy1pbi1hLWdpdmVuLXJhZGl1cy1mcm9tLWEta25vd24tcG9pbnQtemlwLWNvZGUtdmlhLWFzcC1uZXQvHwZnHwdnZBQrAAIWDB8CBRRZb3VUdWJlIEtub3duIFRodW1icx8DBSsvZGVtb3MveW91dHViZV9kYXRhX2FwaV90aHVtYnMvRGVmYXVsdC5hc3B4HwQFSURpc3BsYXlpbmcgU2VsZWN0ZWQgWW91VHViZSBWaWRlbyBUaHVtYm5haWxzIE9uIEFuIEFTUC5ORVQgV2ViIEZvcm1zIFBhZ2UfBQUrL2RlbW9zL3lvdXR1YmVfZGF0YV9hcGlfdGh1bWJzL2RlZmF1bHQuYXNweB8GZx8HZxQrAAQFCzA6MCwwOjEsMDoyFCsAAhYOHwIFF1lvdVR1YmUgRGF0YSBBUEkgVGh1bWJzHwMFLC9kZW1vcy95b3V0dWJlX2RhdGFfYXBpX3RodW1icy9FeGFtcGxlMi5hc3B4HwQFSURpc3BsYXlpbmcgWW91VHViZSBEYXRhIEFQSSBWaWRlbyBUaHVtYm5haWxzIE9uIEFuIEFTUC5ORVQgV2ViIEZvcm1zIFBhZ2UfBQUsL2RlbW9zL3lvdXR1YmVfZGF0YV9hcGlfdGh1bWJzL2V4YW1wbGUyLmFzcHgfBmceCFNlbGVjdGVkZx8HZ2QUKwACFgwfAgUUWW91VHViZSBEYXRhIEFQSSBYTUwfAwUpL2RlbW9zL3lvdXR1YmVfZGF0YV9hcGlfdGh1bWJzL3ZpZGVvcy54bWwfBAU7WW91VHViZSBEYXRhIEFQSSBYTUwgUmVzcG9uc2UgRm9yIFNhbXBsZSBRdWVyeSBTdHJpbmcgKFhNTCkfBQUpL2RlbW9zL3lvdXR1YmVfZGF0YV9hcGlfdGh1bWJzL3ZpZGVvcy54bWwfBmcfB2dkFCsAAhYMHwIFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwMFamh0dHA6Ly93d3cuZG91Z3YuY29tLzIwMTIvMDMvMDgvZGlzcGxheWluZy1zZWxlY3RlZC15b3V0dWJlLXZpZGVvLXRodW1ibmFpbHMtb24tYW4tYXNwLW5ldC13ZWItZm9ybXMtcGFnZS8fBAUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfBQVqaHR0cDovL3d3dy5kb3Vndi5jb20vMjAxMi8wMy8wOC9kaXNwbGF5aW5nLXNlbGVjdGVkLXlvdXR1YmUtdmlkZW8tdGh1bWJuYWlscy1vbi1hbi1hc3AtbmV0LXdlYi1mb3Jtcy1wYWdlLx8GZx8HZ2QUKwACFgwfAgUaUGFyZW50LUNoaWxkIERyb3BEb3duTGlzdHMfAwUpL2RlbW9zL3BhcmVudF9jaGlsZF9kcm9wZG93bi9EZWZhdWx0LmFzcHgfBAVAUGFyZW50LUNoaWxkIERyb3BEb3duTGlzdCBDb250cm9scyBJbiBBU1AuTkVUIFdlYiBGb3JtcyAoVkIuTkVUKR8FBSkvZGVtb3MvcGFyZW50X2NoaWxkX2Ryb3Bkb3duL2RlZmF1bHQuYXNweB8GZx8HZxQrAAUFDzA6MCwwOjEsMDoyLDA6MxQrAAIWDB8CBQpFeGFtcGxlIDFBHwMFKy9kZW1vcy9wYXJlbnRfY2hpbGRfZHJvcGRvd24vRXhhbXBsZTFBLmFzcHgfBAUuRXhhbXBsZSAxQSwgUGFyZW50IC8gQ2hpbGQgRHJvcERvd25MaXN0cyBBbG9uZR8FBSsvZGVtb3MvcGFyZW50X2NoaWxkX2Ryb3Bkb3duL2V4YW1wbGUxYS5hc3B4HwZnHwdnZBQrAAIWDB8CBQpFeGFtcGxlIDFCHwMFKy9kZW1vcy9wYXJlbnRfY2hpbGRfZHJvcGRvd24vRXhhbXBsZTFCLmFzcHgfBAU8RXhhbXBsZSAxYiwgRW5oYW5jaW5nIFRoZSBTcWxEYXRhU291cmNlIENvbnRyb2xzIE1ldGhvZG9sb2d5HwUFKy9kZW1vcy9wYXJlbnRfY2hpbGRfZHJvcGRvd24vZXhhbXBsZTFiLmFzcHgfBmcfB2dkFCsAAhYMHwIFCUV4YW1wbGUgMh8DBSovZGVtb3MvcGFyZW50X2NoaWxkX2Ryb3Bkb3duL0V4YW1wbGUyLmFzcHgfBAUlRXhhbXBsZSAyLCBDb2RlLUJlaGluZCBTUUwgU3RhdGVtZW50cx8FBSovZGVtb3MvcGFyZW50X2NoaWxkX2Ryb3Bkb3duL2V4YW1wbGUyLmFzcHgfBmcfB2dkFCsAAhYMHwIFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwMFX2h0dHA6Ly93d3cuZG91Z3YuY29tLzIwMTEvMTIvMjUvcGFyZW50LWNoaWxkLWRyb3Bkb3dubGlzdC1jb250cm9scy1pbi1hc3AtbmV0LXdlYi1mb3Jtcy12Yi1uZXQvHwQFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwUFX2h0dHA6Ly93d3cuZG91Z3YuY29tLzIwMTEvMTIvMjUvcGFyZW50LWNoaWxkLWRyb3Bkb3dubGlzdC1jb250cm9scy1pbi1hc3AtbmV0LXdlYi1mb3Jtcy12Yi1uZXQvHwZnHwdnZBQrAAIWDB8CBRFBdXRvIEhhc2ggVGFnZ2luZx8DBSAvZGVtb3MvYXV0b19oYXNodGFnL0RlZmF1bHQuYXNweB8EBT9BdXRvbWF0aWNhbGx5IEhhc2ggVGFnZ2luZyBUZXh0IFdpdGggQVNQLk5FVCBXZWIgRm9ybXMgKFZCLk5FVCkfBQUgL2RlbW9zL2F1dG9faGFzaHRhZy9kZWZhdWx0LmFzcHgfBmcfB2cUKwACBQMwOjAUKwACFgwfAgUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfAwVeaHR0cDovL3d3dy5kb3Vndi5jb20vMjAxMS8wNC8yNC9hdXRvbWF0aWNhbGx5LWhhc2gtdGFnZ2luZy10ZXh0LXdpdGgtYXNwLW5ldC13ZWItZm9ybXMtdmItbmV0Lx8EBRdkb3Vndi5jb20gQmxvZyBFbnRyeSDCux8FBV5odHRwOi8vd3d3LmRvdWd2LmNvbS8yMDExLzA0LzI0L2F1dG9tYXRpY2FsbHktaGFzaC10YWdnaW5nLXRleHQtd2l0aC1hc3AtbmV0LXdlYi1mb3Jtcy12Yi1uZXQvHwZnHwdnZBQrAAIWDB8CBRBSU1MgSFRUUCBIYW5kbGVyHwMFIy9kZW1vcy9yc3Nfd2ViX2hhbmRsZXIvRGVmYXVsdC5hc3B4HwQFSUNyZWF0aW5nIEFuIEFTUC5ORVQgUlNTIEZlZWQsIFVzaW5nIERhdGEgRnJvbSBTUUwgU2VydmVyIEFuZCBIVFRQIEhhbmRsZXIfBQUjL2RlbW9zL3Jzc193ZWJfaGFuZGxlci9kZWZhdWx0LmFzcHgfBmcfB2cUKwADBQcwOjAsMDoxFCsAAhYMHwIFBERlbW8fAwUjL2RlbW9zL3Jzc193ZWJfaGFuZGxlci9SU1NGZWVkLmFzaHgfBAUERGVtbx8FBSMvZGVtb3MvcnNzX3dlYl9oYW5kbGVyL3Jzc2ZlZWQuYXNoeB8GZx8HZ2QUKwACFgwfAgUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfAwVsaHR0cDovL3d3dy5kb3Vndi5jb20vMjAxMC8xMi8xMS9jcmVhdGluZy1hbi1hc3AtbmV0LXJzcy1mZWVkLXVzaW5nLWRhdGEtZnJvbS1zcWwtc2VydmVyLWFuZC1odHRwLXdlYmhhbmRsZXIvHwQFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwUFbGh0dHA6Ly93d3cuZG91Z3YuY29tLzIwMTAvMTIvMTEvY3JlYXRpbmctYW4tYXNwLW5ldC1yc3MtZmVlZC11c2luZy1kYXRhLWZyb20tc3FsLXNlcnZlci1hbmQtaHR0cC13ZWJoYW5kbGVyLx8GZx8HZ2QUKwACFgwfAgUdRHluYW1pY2FsbHkgQWRkaW5nIEphdmFTY3JpcHQfAwUpL2RlbW9zL2FkZF9qc190b19tYXN0ZXJfcGFnZS9EZWZhdWx0LmFzcHgfBAVLRHluYW1pY2FsbHkgQWRkaW5nIEphdmFTY3JpcHQgVG8gWW91ciBBU1AuTkVUIE1hc3RlciBQYWdlIEZyb20gQSBDaGlsZCBQYWdlHwUFKS9kZW1vcy9hZGRfanNfdG9fbWFzdGVyX3BhZ2UvZGVmYXVsdC5hc3B4HwZnHwdnFCsAAwUHMDowLDA6MRQrAAIWDB8CBRBQYWdlIFdpdGggU2NyaXB0HwMFKi9kZW1vcy9hZGRfanNfdG9fbWFzdGVyX3BhZ2UvRXhhbXBsZTEuYXNweB8EBTBTYW1lIFBhZ2UsIFdpdGggU2NyaXB0IEluamVjdGVkIEludG8gTWFzdGVyIFBhZ2UfBQUqL2RlbW9zL2FkZF9qc190b19tYXN0ZXJfcGFnZS9leGFtcGxlMS5hc3B4HwZnHwdnZBQrAAIWDB8CBRdkb3Vndi5jb20gQmxvZyBFbnRyeSDCux8DBWxodHRwOi8vd3d3LmRvdWd2LmNvbS8yMDEwLzAyLzE3L2R5bmFtaWNhbGx5LWFkZGluZy1qYXZhc2NyaXB0LXRvLXlvdXItYXNwLW5ldC1tYXN0ZXItcGFnZS1mcm9tLWEtY2hpbGQtcGFnZS8fBAUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfBQVsaHR0cDovL3d3dy5kb3Vndi5jb20vMjAxMC8wMi8xNy9keW5hbWljYWxseS1hZGRpbmctamF2YXNjcmlwdC10by15b3VyLWFzcC1uZXQtbWFzdGVyLXBhZ2UtZnJvbS1hLWNoaWxkLXBhZ2UvHwZnHwdnZBQrAAIWDB8CBRNDb21ib0JveCBUbyBMaXN0Qm94HwMFJC9kZW1vcy9jb21ib190b19saXN0Ym94L0RlZmF1bHQuYXNweB8EBURNb3ZpbmcgTGlzdEl0ZW1zIEZyb20gQSBDb21ib0JveCAvIERyb3BEb3duTGlzdCBUbyBBIExpc3RCb3ggSW4gLk5FVB8FBSQvZGVtb3MvY29tYm9fdG9fbGlzdGJveC9kZWZhdWx0LmFzcHgfBmcfB2cUKwACBQMwOjAUKwACFgwfAgUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfAwViaHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wMi8yMS9tb3ZpbmctbGlzdGl0ZW1zLWZyb20tYS1jb21ib2JveC1kcm9wZG93bmxpc3QtdG8tYS1saXN0Ym94LWluLW5ldC8fBAUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfBQViaHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wMi8yMS9tb3ZpbmctbGlzdGl0ZW1zLWZyb20tYS1jb21ib2JveC1kcm9wZG93bmxpc3QtdG8tYS1saXN0Ym94LWluLW5ldC8fBmcfB2dkFCsAAhYMHwIFGE5vbi1TZWxlY3RhYmxlIExpc3RJdGVtcx8DBSsvZGVtb3Mvbm9uX3NlbGVjdGFibGVfbGlzdGl0ZW0vZGVmYXVsdC5hc3B4HwQFV1JldmlzaXRlZDogQWRkaW5nIE5vbi1TZWxlY3RhYmxlIExpc3RJdGVtIENvbnRyb2xzIFRvIEFuIEFTUC5ORVQgRGF0YWJvdW5kIExpc3QgQ29udHJvbB8FBSsvZGVtb3Mvbm9uX3NlbGVjdGFibGVfbGlzdGl0ZW0vZGVmYXVsdC5hc3B4HwZnHwdnFCsABAULMDowLDA6MSwwOjIUKwACFgwfAgUcRXhhbXBsZSAyOiBEYXRhQm91bmQgQ29udHJvbB8DBS0vZGVtb3Mvbm9uX3NlbGVjdGFibGVfbGlzdGl0ZW0vZGF0YWJvdW5kLmFzcHgfBAUcRXhhbXBsZSAyOiBEYXRhQm91bmQgQ29udHJvbB8FBS0vZGVtb3Mvbm9uX3NlbGVjdGFibGVfbGlzdGl0ZW0vZGF0YWJvdW5kLmFzcHgfBmcfB2dkFCsAAhYMHwIFG0V4YW1wbGUgMzogQ3VzdG9tIFZhbGlkYXRvch8DBS0vZGVtb3Mvbm9uX3NlbGVjdGFibGVfbGlzdGl0ZW0vdmFsaWRhdG9yLmFzcHgfBAUbRXhhbXBsZSAzOiBDdXN0b20gVmFsaWRhdG9yHwUFLS9kZW1vcy9ub25fc2VsZWN0YWJsZV9saXN0aXRlbS92YWxpZGF0b3IuYXNweB8GZx8HZ2QUKwACFgwfAgUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfAwV2aHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wMi8wNy9yZXZpc2l0ZWQtYWRkaW5nLW5vbi1zZWxlY3RhYmxlLWxpc3RpdGVtLWNvbnRyb2xzLXRvLWFuLWFzcG5ldC1kYXRhYm91bmQtbGlzdC1jb250cm9sLx8EBRdkb3Vndi5jb20gQmxvZyBFbnRyeSDCux8FBXZodHRwOi8vd3d3LmRvdWd2LmNvbS8yMDA5LzAyLzA3L3JldmlzaXRlZC1hZGRpbmctbm9uLXNlbGVjdGFibGUtbGlzdGl0ZW0tY29udHJvbHMtdG8tYW4tYXNwbmV0LWRhdGFib3VuZC1saXN0LWNvbnRyb2wvHwZnHwdnZBQrAAIWDB8CBQtUd2l0dGVyIEFQSR8DBRsvZGVtb3MvdHdpdHRlci9EZWZhdWx0LmFzcHgfBAVAUG9zdGluZyBTdGF0dXMgVXBkYXRlcyAoVHdlZXRzKSBUbyBBIFR3aXR0ZXIgUHJvZmlsZSBWaWEgQVNQLk5FVB8FBRsvZGVtb3MvdHdpdHRlci9kZWZhdWx0LmFzcHgfBmcfB2cUKwACBQMwOjAUKwACFgwfAgUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfAwVfaHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wNy8wMS9wb3N0aW5nLXN0YXR1cy11cGRhdGVzLXR3ZWV0cy10by1hLXR3aXR0ZXItcHJvZmlsZS12aWEtYXNwLW5ldC8fBAUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfBQVfaHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wNy8wMS9wb3N0aW5nLXN0YXR1cy11cGRhdGVzLXR3ZWV0cy10by1hLXR3aXR0ZXItcHJvZmlsZS12aWEtYXNwLW5ldC8fBmcfB2dkFCsAAhYMHwIFCkJpdC5seSBBUEkfAwUZL2RlbW9zL2JpdGx5L0RlZmF1bHQuYXNweB8EBS9TaG9ydGVuaW5nIFVSTHMgV2l0aCBUaGUgYml0Lmx5IEFQSSBWaWEgQVNQLk5FVB8FBRkvZGVtb3MvYml0bHkvZGVmYXVsdC5hc3B4HwZnHwdnFCsAAgUDMDowFCsAAhYMHwIFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwMFUGh0dHA6Ly93d3cuZG91Z3YuY29tLzIwMDkvMDcvMDIvc2hvcnRlbmluZy11cmxzLXdpdGgtdGhlLWJpdC1seS1hcGktdmlhLWFzcC1uZXQvHwQFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwUFUGh0dHA6Ly93d3cuZG91Z3YuY29tLzIwMDkvMDcvMDIvc2hvcnRlbmluZy11cmxzLXdpdGgtdGhlLWJpdC1seS1hcGktdmlhLWFzcC1uZXQvHwZnHwdnZBQrAAIWDB8CBQtQYWdlIFRpdGxlcx8DBR8vZGVtb3MvcGFnZV90aXRsZXMvRGVmYXVsdC5hc3B4HwQFRUR5bmFtaWNhbGx5IENoYW5naW5nIFlvdXIgQ2hpbGQgUGFnZSBUaXRsZXMgV2l0aCBBU1AuTkVUIE1hc3RlciBQYWdlcx8FBR8vZGVtb3MvcGFnZV90aXRsZXMvZGVmYXVsdC5hc3B4HwZnHwdnFCsAAgUDMDowFCsAAhYMHwIFF2RvdWd2LmNvbSBCbG9nIEVudHJ5IMK7HwMFZGh0dHA6Ly93d3cuZG91Z3YuY29tLzIwMDkvMDgvMTIvZHluYW1pY2FsbHktY2hhbmdpbmcteW91ci1jaGlsZC1wYWdlLXRpdGxlcy1pbi1hc3AtbmV0LW1hc3Rlci1wYWdlcy8fBAUXZG91Z3YuY29tIEJsb2cgRW50cnkgwrsfBQVkaHR0cDovL3d3dy5kb3Vndi5jb20vMjAwOS8wOC8xMi9keW5hbWljYWxseS1jaGFuZ2luZy15b3VyLWNoaWxkLXBhZ2UtdGl0bGVzLWluLWFzcC1uZXQtbWFzdGVyLXBhZ2VzLx8GZx8HZ2QUKwACFgwfAgUTZG91Z3YuY29tIChteSBibG9nKR8DBRVodHRwOi8vd3d3LmRvdWd2LmNvbS8fBAUTZG91Z3YuY29tIChteSBibG9nKR8FBRVodHRwOi8vd3d3LmRvdWd2LmNvbS8fBmcfB2dkZAIFD2QWAgIBDw8WAh8CBewBPHN0cm9uZz5SZXF1ZXN0IFVSTCByZXR1cm5lZCBieSBZb3VUdWJlIERhdGEgQVBJOjwvc3Ryb25nPiBodHRwczovL2dkYXRhLnlvdXR1YmUuY29tL2ZlZWRzL2FwaS92aWRlb3M/cT0lMjJNaXNzK01haW5lJTIyJmFtcDtzdGFydC1pbmRleD0xJmFtcDttYXgtcmVzdWx0cz0xMiZhbXA7ZHVyYXRpb249c2hvcnQmYW1wO29yZGVyYnk9cmVsZXZhbmNlX2xhbmdfZW4mYW1wO3NhZmVTZWFyY2g9c3RyaWN0JmFtcDt2PTJkZAIJDw8WAh8CBSdDb3B5cmlnaHQgJmNvcHk7IDIwMTIgRG91ZyBWYW5kZXJ3ZWlkZS5kZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUMY3RsMDAkdHZNYWluVEtue8Q/+9imiQr+EcqvDh/noITZTuHZ1JxVKR+9NeE=" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDgKIlPnCBgLvh4LICAL5zrMXAvWIu+YKAtzFpa8MAs7knNYEAtDbz+8HAvzXqpcMAonL3dUCArGD/4kGAtSd5oIKAqqK1kUCodCJsgsCvLumSzyNAxPViYIRyOsi3Y63To//BKgwNsc/nqCXNcEl4252" />
+            <div id="container">
+                <!--div id="header">
+                    <h1><a href="/">dougv.net &laquo; Doug Vanderweide's ASP.NET demos</a></h1>
+                </div-->
+                
+                
+                
+                <div id="mainContent">
+                    
+    <!--
+        Displaying Selected YouTube Data API Thumbnails On A Web Page Via ASP.NET Web Forms
+        Copyright (C) 2012 Doug Vanderweide
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    -->
+    <h2>
+        Displaying Selected YouTube Data API Thumbnails On A Web Page Via ASP.NET Web Forms
+    </h2>
+
+    <p class="note">
+        This sample shows how to query the YouTube Data API with a search, retrieve relevant videos, and display hyperlinked thumbnails on a Web page.
+    </p>
+
+    <p><span id="ctl00_cphMain_lblStatus"><strong>Request URL returned by YouTube Data API:</strong> https://gdata.youtube.com/feeds/api/videos?q=%22Miss+Maine%22&amp;start-index=1&amp;max-results=12&amp;duration=short&amp;orderby=relevance_lang_en&amp;safeSearch=strict&amp;v=2</span></p>
+    <div id="ctl00_cphMain_pnlThumbs">
+	<a title="Miss Maine 2012 Talent" class="margin-5" href="https://www.youtube.com/watch?v=qvTuwj9pIoU&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine 2012 Talent" src="http://i.ytimg.com/vi/qvTuwj9pIoU/default.jpg" alt="Miss Maine 2012 Talent" border="0" /></a><a title="Miss Maine USA 2011" class="margin-5" href="https://www.youtube.com/watch?v=STm4GUqwLVo&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine USA 2011" src="http://i.ytimg.com/vi/STm4GUqwLVo/default.jpg" alt="Miss Maine USA 2011" border="0" /></a><a title="Miss Maine USA - Katie Whittier" class="margin-5" href="https://www.youtube.com/watch?v=8cO1EicRi7g&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine USA - Katie Whittier" src="http://i.ytimg.com/vi/8cO1EicRi7g/default.jpg" alt="Miss Maine USA - Katie Whittier" border="0" /></a><a title="Miss Maine 2011 at Melmark&#39;s Dream Maker&#39;s Ball 2012 Gala" class="margin-5" href="https://www.youtube.com/watch?v=8BSlMQJ_3XM&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine 2011 at Melmark&#39;s Dream Maker&#39;s Ball 2012 Gala" src="http://i.ytimg.com/vi/8BSlMQJ_3XM/default.jpg" alt="Miss Maine 2011 at Melmark&#39;s Dream Maker&#39;s Ball 2012 Gala" border="0" /></a><a title="Miss Maine&#39;s Outstanding Teen 2012 Talent - Katie Elliot" class="margin-5" href="https://www.youtube.com/watch?v=Kp5eBL2VAbk&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine&#39;s Outstanding Teen 2012 Talent - Katie Elliot" src="http://i.ytimg.com/vi/Kp5eBL2VAbk/default.jpg" alt="Miss Maine&#39;s Outstanding Teen 2012 Talent - Katie Elliot" border="0" /></a><a title="Miss Maine 2012 Crowning Moment - Molly Bouchard" class="margin-5" href="https://www.youtube.com/watch?v=J0510DvkBxI&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine 2012 Crowning Moment - Molly Bouchard" src="http://i.ytimg.com/vi/J0510DvkBxI/default.jpg" alt="Miss Maine 2012 Crowning Moment - Molly Bouchard" border="0" /></a><a title="Miss Maine&#39;s Outstanding Teen 2012 Crowning Moment - Katie Elliot" class="margin-5" href="https://www.youtube.com/watch?v=zOAHUhI8ono&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine&#39;s Outstanding Teen 2012 Crowning Moment - Katie Elliot" src="http://i.ytimg.com/vi/zOAHUhI8ono/default.jpg" alt="Miss Maine&#39;s Outstanding Teen 2012 Crowning Moment - Katie Elliot" border="0" /></a><a title="2012 Miss Maine Intro - Portland Maine Video Production" class="margin-5" href="https://www.youtube.com/watch?v=QzxpyIonYC8&amp;feature=youtube_gdata_player" target="video"><img title="2012 Miss Maine Intro - Portland Maine Video Production" src="http://i.ytimg.com/vi/QzxpyIonYC8/default.jpg" alt="2012 Miss Maine Intro - Portland Maine Video Production" border="0" /></a><a title="Vote for Miss Maine 2011 Julia Furtado" class="margin-5" href="https://www.youtube.com/watch?v=K2eNnjgeJlY&amp;feature=youtube_gdata_player" target="video"><img title="Vote for Miss Maine 2011 Julia Furtado" src="http://i.ytimg.com/vi/K2eNnjgeJlY/default.jpg" alt="Vote for Miss Maine 2011 Julia Furtado" border="0" /></a><a title="Katie Elliott, Miss Maine&#39;s Outstanding Teen 2012" class="margin-5" href="https://www.youtube.com/watch?v=YfpAoz2a_cA&amp;feature=youtube_gdata_player" target="video"><img title="Katie Elliott, Miss Maine&#39;s Outstanding Teen 2012" src="http://i.ytimg.com/vi/YfpAoz2a_cA/default.jpg" alt="Katie Elliott, Miss Maine&#39;s Outstanding Teen 2012" border="0" /></a><a title="Miss Maine USA Winner-YouTube sharing.mov" class="margin-5" href="https://www.youtube.com/watch?v=KdL_CADvflc&amp;feature=youtube_gdata_player" target="video"><img title="Miss Maine USA Winner-YouTube sharing.mov" src="http://i.ytimg.com/vi/KdL_CADvflc/default.jpg" alt="Miss Maine USA Winner-YouTube sharing.mov" border="0" /></a><a title="2012 Miss Maine Winner.mov" class="margin-5" href="https://www.youtube.com/watch?v=LbAjbK6vnPQ&amp;feature=youtube_gdata_player" target="video"><img title="2012 Miss Maine Winner.mov" src="http://i.ytimg.com/vi/LbAjbK6vnPQ/default.jpg" alt="2012 Miss Maine Winner.mov" border="0" /></a>
+</div>
+
+   
+
+
+                    
+                 
+                </div>
+                
+                <br class="clearfloat" />
+                
+               
+            </div>
+            
+            
+        </form>	
+        
+        <script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-3035418-8");
+				pageTracker._trackPageview();
+			} 
+			catch(err) {}
+		</script>
+    </body>
+</html>
