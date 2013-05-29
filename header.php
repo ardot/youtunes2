@@ -4,7 +4,7 @@
 	
 		if(isset($_SESSION['username'])){
 			$name = $_SESSION['username'];
-			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:10px;\"> 
+			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:2px;\"> 
 				Welcome $name! | 
 				<a href=\"logout.php\">
 					logout
@@ -19,13 +19,13 @@
 				<div id="playControls">
 					<ul id="navi">
 						<li id="back">
-							<img src="images/back.png" alt="some_text" onclick="back()"/>
+							<img class="buttons" src="images/back.png" alt="some_text" onclick="back()"/>
 						</li>
 						<li id="play" >
-							<img id="playImage" src="images/play.png" onclick="pause(this)" alt="some_text" id="playButton"/>
+							<img class="buttons" id="playImage" src="images/play.png" onclick="pause(this)" alt="some_text" id="playButton"/>
 						</li>
 						<li id="forward">
-							<img src="images/forward.png" alt="some_text" onclick="forward()"/>
+							<img class="buttons" src="images/forward.png" alt="some_text" onclick="forward()"/>
 						</li>
 					</ul>
 				</div>

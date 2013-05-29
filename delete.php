@@ -24,12 +24,17 @@
 	
 	$vID = $_GET['vID'];
 
-	$query = "DELETE FROM `youtunes`.`Songs` WHERE 'Songs'.'vID'=$vID";
-	
-	error_log("Query: $query", 3, "errors.txt");
-	
-	mysql_query("DELETE FROM `youtunes`.`Songs` WHERE 'Songs'.'vID'='$vID'");
+	print("<h1> VID = $vID </h1>");
 
+	$query = "DELETE FROM Songs WHERE vID=\"$vID\"";
+	
+	print("<h1> query = $query </h1>");
+	
+	//error_log("Query: $query", 3, "errors.txt");
+	
+	$result = mysql_query($query);
+
+	print("<h1> Result = $result </h1>");
 /*
 	mysql_query("INSERT INTO 'youtunes'.'Songs' 
 					('sID', 'album', 'vID', 'plays', 'genre', 'title', 'time', 'artist') 

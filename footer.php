@@ -29,9 +29,9 @@
 	
 		if(isset($_SESSION['username'])){
 			print("<div class=\"ytclosed\" id=\"ytsearch\">
-					<div style=\"background-color:rgba(255,120,120,1); border-top-left-radius:8px; max-height:50px;\">
-						<input type=\"text\" id=\"queryinput\" style=\"position:relative; left:38px; margin-left:0px; width:340px;font-style:italic; color:gray\" value=\"Search youtube\" onkeydown=\"javascript:SearchYouTube(document.getElementById('queryinput').value)\"/>			
-						<div style=\"height:25px; width:27px;background-color:rgba(255,50,50,1); border-radius:8px; position:relative; top:-40px; left:4px; padding-top:4px; padding-left:2px\"   onclick=\"searchChange()\">
+					<div class=\"searchContainer\">
+						<input class=\"addSongs\" type=\"text\" id=\"queryinput\"  value=\"Add Songs from Youtube!\" onkeydown=\"javascript:SearchYouTube(document.getElementById('queryinput').value)\"/>			
+						<div class=\"minimize\" onclick=\"searchChange()\">
 				
 							<img id=\"upordown\" src=\"images/up.png\", alt=\"\">
 						</div>

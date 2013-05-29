@@ -74,11 +74,53 @@
 				<th width="250px" style="min-width:250px">Artist</th>
 				<th width="200px" style="min-width:200px">Album</th>
 				<th width="100px" style="min-width:100px">Genre</th>
-				<th width="100%">Plays</th>
+				<th width="100%">Edit</th>
 			</tr>
 		</thead>
 		<tbody >
 			
+			
+			<!--tr id="inputRow" onmousedown="select(this);">
+				<td width="20px" style="min-width:20px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+								
+					</div>
+				</td>
+				<td width="316px" style="min-width:316px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+						 <input style="min-width:316px;" class="edit" type="text" name="firstname">
+					</div>
+				</td>
+				<td width="16px" style="min-width:76px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+					</div> 
+				</td>
+				<td width="266px" style="min-width:266px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+						 <input  style="min-width:266px;"  class="edit" type="text" name="firstname">
+					</div>
+				</td>
+				<td width="216px" style="min-width:216px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+						 <input  style="min-width:216px;" class="edit" type="text" name="firstname">
+					</div>
+				</td>
+				<td width="116px" style="min-width:116px;max-height:29px">
+					<div style="width:100%;height:20px;overflow:hidden;">
+						 <input  style="min-width:116px;" class="edit" type="text" name="firstname">
+					</div>
+				</td>
+				<td width="100%">
+					<div style="width:100%;height:20px;margin-left:15px;overflow:hidden;">
+										
+											<!--$plays-->
+										
+						<!--img src="images/fucking_massive_check.png" onclick="approveEdit(this);"style="margin-left:25px" alt="edit"/>
+						<img src="images/delete-icon.jpg" onclick="cancelEdit(this);" style="margin-left:5px" alt="delete"/>
+											
+					</div>
+				</td>
+		   </tr-->
 			
 			<?php
 				$db = mysql_connect("localhost","root", "root");
@@ -150,7 +192,7 @@
 										
 											<!--$plays-->
 										
-											<img src=\"images/edit.png\" style=\"margin-left:25px\" alt=\"edit\"/>
+											<img src=\"images/edit.png\" style=\"margin-left:25px\" onclick=\"edit(this);\"  alt=\"edit\"/>
 											<img src=\"images/delete-icon.png\" onclick=\"deleteSong(this);\" style=\"margin-left:5px\" alt=\"delete\"/>
 											
 									</div>

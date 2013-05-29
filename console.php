@@ -552,6 +552,59 @@
 						
 					}
 		
+					function edit(sender){
+						
+						//console.log(sender.parentNode.parentNode.parentNode);
+					
+						var row = sender.parentNode.parentNode.parentNode;
+						var inputRow = document.getElementById("inputRow");
+						
+						for(var i = 0; i < row.childNodes.length - 1; i++){
+							
+							if(i % 2 == 1){
+								
+								/*console.log(row.childNodes[i].childNodes[1].innerHTML);
+								console.log(inputRow.childNodes[i].childNodes[1].childNodes);*/
+								
+								inputRow.childNodes[i].childNodes[1].childNodes.value = row.childNodes[i].childNodes[1].innerHTML;
+							}
+						}
+						
+						var r = confirm("Are you sure you want to delete this song?");
+						
+						if (r==true){
+ 							console.log("edit");
+  						}
+  						else{
+  							console.log("Don't edit");
+  						}
+						
+					}
+					
+					function acceptEdit(sender){
+						
+						console.log(sender.parentNode.parentNode);
+						
+						var r = confirm("Are you sure you want to change this song?");
+						
+						if (r==true){
+ 							console.log("yup");
+  						}
+						
+					}
+					
+					function cancelEdit(sender){
+						
+						console.log(sender.parentNode.parentNode);
+						
+						var r = confirm("Are you sure you want to decline this edit");
+						
+						if (r==true){
+ 							
+  						}
+						
+					}
+					
    					//Plays the song selected (called on a double click)
    					/*function Play(sender)
    					{

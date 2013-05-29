@@ -22,7 +22,7 @@
 
 	padding:0px;
     
-	background-image:url('Images/headerFade150.png');
+	background-image:url('images/headerFade150.png');
 	/*background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(150,150,150,1) 100%); /* Chrome10+,Safari5.1+ */
 	/*background-color:#668CFF;*/
 	width:100%;
@@ -61,11 +61,11 @@
 
 #ytsearch{
 	position:relative;
-	left:100%;
+	left:50%;
 	top:100%;
-	width:400px;
-	margin-left:-400px;
-	margin-bottom:80px;
+	width:800px;
+	margin-left:-380px;
+	margin-bottom:0px;
 	max-height:50px;
 	/*background-color:rgba(255,120,120,1);*/
 
@@ -78,11 +78,49 @@
 	height:520px;
 }
 
+.edit{
+	height:20px;
+	font-size:100%;
+	font-family:Georgia;
+	padding-left:2px;
+	border-radius:3px;
+}
 .ytclosed{
-	margin-top:-146px;
+	margin-top:-95px;
 	height:160px
 }
 
+.addSongs{
+	position:relative;
+	left:20px;
+	top:-4px;
+	margin-left:0px;
+	margin-top:0px;
+	width:720px;
+	font-style:italic;
+	color:gray;
+	height:32px;
+}
+
+.minimize{
+	height:25px;
+	width:27px;
+	position:relative;
+	top:-42px;
+	left:4px;
+	padding-top:4px;
+	padding-left:2px; 
+}
+
+.searchItem:hover{
+	background:gray;
+}
+.searchContainer{
+	background-color:rgba(255,120,120,1);
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	max-height:50px;
+}
 #queryinput{
 	margin-top:10px;
 	margin-bottom:10px;
@@ -177,8 +215,8 @@
 	width:560px;
 	height:100px;
 	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10+,Safari5.1+ */
-	border:solid;
-	border-color:gray;
+	border:3px inset;
+	/*border-color:white;*/
 	border-radius:8px;
 	/*box-shadow: 
                0 -1px 3px rgba(0,0,0,.3),
@@ -186,6 +224,11 @@
                 0 5px 10px rgba(0,0,0,.25);*/
 }
 
+.buttons{
+	
+	border:2px inset;
+	border-radius:8px;
+}
 #progressBar{
 
 	border:solid;
@@ -477,7 +520,6 @@ p{
 }
 
 #footer{
-	min-width:1500px;
 	border-top:solid;
 	border-width:thin;
 	position:fixed;
@@ -536,7 +578,7 @@ input{
 	font-size:110%;
     height:25px;
     width:200px;
-    border-radius:15px;
+    border-radius:8px;
 }
 
 #options{
