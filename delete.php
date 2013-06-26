@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	//WHY DOES THIS NOT DELETE??
 
 	$db = mysql_connect("localhost","root", "root");
@@ -17,16 +17,15 @@
     }//end if
 	
 	//
-	if(!isset($_GET['vID'])){
+	if(!isset($_GET['sID'])){
 		echo "Invalid call to this function";
 		exit();
 	}
 	
-	$vID = $_GET['vID'];
+	$sID = $_GET['sID'];	
+	$uID = $_SESSION['uid'];
 
-	print("<h1> VID = $vID </h1>");
-
-	$query = "DELETE FROM Songs WHERE vID=\"$vID\"";
+	$query = "DELETE FROM HasSong WHERE (song="  .mysql_real_escape_string($sID). " AND user="  .mysql_real_escape_string($uID). ")";
 	
 	print("<h1> query = $query </h1>");
 	

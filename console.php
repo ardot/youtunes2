@@ -104,6 +104,7 @@
       }
       
 
+	
       
      
       // This function is called when an error is thrown by the player
@@ -173,19 +174,38 @@
 				<ul id="playlista">
 					<li class="playlistCategory">
 						
-							<!--p class="auto_cursor"-->
+							<p class="auto_cursor">
 								All Music
-							<!--/p-->
+							</p>
 						
 					</li>
 					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
 						
-							<!--p class="playlistP auto_cursor"-->
+							<p class="playlistP auto_cursor">
 								My Library
-							<!--/p-->
+							</p>
 					</li>
-					
-					
+					<li class="playlistCategory">
+						
+							<p class="auto_cursor">
+								My Playlists
+							</p>
+						
+					</li>
+					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
+						
+						
+						<input class="playlistInput" type="text" name="test" value="test" width="100%"/>
+							<!--p class="playlistP auto_cursor">
+								Playlist 1
+							</p-->
+					</li>
+					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
+						
+							<p class="playlistP auto_cursor">
+								Playlist 2
+							</p>
+					</li>
 					
 					
 				</ul>
@@ -195,7 +215,7 @@
 		
 		<div id="cont">
 			
-			
+			<!--div id="rightColumn"></div-->
 			<div id="library">
 				
 				<div id="libraryContainer">
@@ -227,8 +247,15 @@
         					die ("Could not select database") . mysql_error();
     					}//end if
 	
+						if($uID == 1){
+							$query = "SELECT * FROM Songs";
+						}
+						else{
+    						$query= "SELECT * FROM Songs INNER JOIN ((SELECT song FROM HasSong WHERE user=" .mysql_real_escape_string($uID). ") AS T) ON Songs.sID=T.song";
+						}
 						
-    					$sql=mysql_query("select * from Songs");
+						$sql=mysql_query($query);
+    					//$sql=mysql_query("select * from Songs");
     					
 						//counts the number of songs and stores them for communication with Javascript later
     					$index = 0;
@@ -243,11 +270,11 @@
 							$artist = $row['artist'];
 							$plays = $row['plays'];
 							$genre = $row['genre'];
-							$sId = $row['sID'];
+							$sID = $row['sID'];
 							$album = $row['album'];
 							
 							
-							$songs[$index] = array('vID' => $vID, 'title' => $title, 'time' => $time, 'artist' => $artist, 'plays' => $plays, 'genre' => $genre, 'sID' => $sId, 'album' => $album);
+							$songs[$index] = array('vID' => $vID, 'title' => $title, 'time' => $time, 'artist' => $artist, 'plays' => $plays, 'genre' => $genre, 'sID' => $sID, 'album' => $album);
 							
 							//increment the counter so that the next video gets the next index
 							$index++;
@@ -255,7 +282,8 @@
 					
 					
 					?>
-					
+				
+				<script type="text/javascript" src="js/editSongs.js"></script>
 				<script type="text/javascript">
 					var selected=-1;
 					var progress=document.getElementById('completed');
@@ -371,11 +399,11 @@
    					 */
    					function setShuffle(sender){
    						if(shuffle){
-   							sender.setAttribute("src", "Images/shuffle50.png");
+   							sender.setAttribute("src", "images/shuffle50.png");
    							shuffle=false;
    						}//end if
    						else{
-   							sender.setAttribute("src", "Images/shuffleSel50.png");
+   							sender.setAttribute("src", "images/shuffleSel50.png");
    							shuffle=true;
    							console.log(shuffle);
    						}//end else
@@ -390,18 +418,18 @@
    							if(ytplayer){
    								ytplayer.setLoop(true);
    							}
-   							sender.setAttribute("src", "Images/loopSel50.png");
+   							sender.setAttribute("src", "images/loopSel50.png");
    							loop =1;
    						}//end if
    						else if(loop==1){
-   							sender.setAttribute("src", "Images/loopSingleSel50.png");
+   							sender.setAttribute("src", "images/loopSingleSel50.png");
    							loop=2;
    						}//end else if
    						else{
    							if(ytplayer){
    								ytplayer.setLoop(false);
    							}
-   							sender.setAttribute("src", "Images/loop50.png");
+   							sender.setAttribute("src", "images/loop50.png");
    							loop=0;
    						}//end else
    					}//end setLoop
@@ -538,11 +566,11 @@
 						
 						if (r==true){
  							var to_remove = sender.parentNode.parentNode.parentNode;
- 							var vID = to_remove.getAttribute( "name");
+ 							var sID = to_remove.getAttribute( "title");
  							
  							console.log(to_remove);
  							var url = "delete.php";
-							url = url.concat("?album=" + vID);
+							url = url.concat("?sID=" + sID);
 							console.log(url);
 							$.get(url);
  							
@@ -552,56 +580,8 @@
 						
 					}
 		
-					function edit(sender){
+					function addPlaylist(){
 						
-						//console.log(sender.parentNode.parentNode.parentNode);
-					
-						var row = sender.parentNode.parentNode.parentNode;
-						var inputRow = document.getElementById("inputRow");
-						
-						for(var i = 0; i < row.childNodes.length - 1; i++){
-							
-							if(i % 2 == 1){
-								
-								/*console.log(row.childNodes[i].childNodes[1].innerHTML);
-								console.log(inputRow.childNodes[i].childNodes[1].childNodes);*/
-								
-								inputRow.childNodes[i].childNodes[1].childNodes.value = row.childNodes[i].childNodes[1].innerHTML;
-							}
-						}
-						
-						var r = confirm("Are you sure you want to delete this song?");
-						
-						if (r==true){
- 							console.log("edit");
-  						}
-  						else{
-  							console.log("Don't edit");
-  						}
-						
-					}
-					
-					function acceptEdit(sender){
-						
-						console.log(sender.parentNode.parentNode);
-						
-						var r = confirm("Are you sure you want to change this song?");
-						
-						if (r==true){
- 							console.log("yup");
-  						}
-						
-					}
-					
-					function cancelEdit(sender){
-						
-						console.log(sender.parentNode.parentNode);
-						
-						var r = confirm("Are you sure you want to decline this edit");
-						
-						if (r==true){
- 							
-  						}
 						
 					}
 					

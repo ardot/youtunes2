@@ -68,7 +68,11 @@
 		
 		
 	}
-	else if(isset($_POST['username_new'])){
+	else {
+		
+		$_SESSION['login_error'] = "You must enter both a username and a password!";	
+		
+	}/*if(isset($_POST['username_new'])){
 		$username = $_POST['username_new'];
 		$passwd = $_POST['passwd_new'];
 		$passwdconf = $_POST['passwdconf_new'];
@@ -86,7 +90,7 @@
 			//SEND CONFIRMATION EMAIL??
 		}
 		
-	}
+	}*/
 	
 	header("Location: index.php");
 /*	print($_SESSION['login_error']);

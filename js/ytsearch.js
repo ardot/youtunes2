@@ -102,62 +102,51 @@ function SearchiTunes(sender) {
  		
  	}
  	
- 	console.log("Song array from this: " + songArray);
+ 	
+	
+ 	
+ 	
  	var id = sender.getAttribute("id");
- 	var index = songArray.length;
 	var time = sender.getAttribute("name");
 	var plays = 0;
     
-    songArray.push(id);
-    titleArray.push(name);
-    artistArray.push(artist);
     
-    var new_time = secondstotime(time);
-    
-    var html = "<tr id=\"" + index + "\" name=\"" + id + "\" ondblclick=\"play(this);\" onmousedown=\"select(this);\">"; 
-   	html = html.concat("<td width=\"20px\" style=\"min-width:20px;max-height:29px\">"); 
-   	html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\"></div></td>");
-    html = html.concat("<td width=\"316px\" style=\"min-width:316px;max-height:29px\">");
-    html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\">" + name + "</div></td>");
-    html = html.concat("<td width=\"16px\" style=\"min-width:76px;max-height:29px\">");
-    html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\">" + new_time + "</div></td>");
-    html = html.concat("<td width=\"266px\" style=\"min-width:266px;max-height:29px\">");
-    html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\">" + artist + "</div></td>");
-    html = html.concat("<td width=\"216px\" style=\"min-width:216px;max-height:29px\">");
-    html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\">" + album + "</div></td>");
-    html = html.concat("<td width=\"116px\" style=\"min-width:116px;max-height:29px\">");
-    html = html.concat("<div style=\"width:100%;height:20px;overflow:hidden;\">" + genre + "</div></td>");
-    html = html.concat("<td width=\"100%\">" + plays + "</td></tr>");
-  
-  
-  	var droplist = ['\'', ',', '<', '>', '(', ')', '{', '}', '[', ']', '|', '\\', '^', '~', '#', '%', ';', '/', '?', ':', '@', '='];
+    var droplist = ['\'', ',', '<', '>', '(', ')', '{', '}', '[', ']', '|', '\\', '^', '~', '#', '%', ';', '/', '?', ':', '@', '='];
   	
   	//run through all the stoplist terms and remove them
 	for(counter = 0; counter < droplist.length; counter++){	
 		console.log("Checking! " + droplist[counter]);
 		
 		while(album.indexOf(droplist[counter]) > 0){
-			console.log("Checking album");
-			console.log(album);
-			album = album.replace(droplist[counter], "");	
-			console.log(album);
+			album = album.replace(droplist[counter], "");
 		}	
 		while(genre.indexOf(droplist[counter]) > 0){
-			console.log("Checking genre");
 			genre = genre.replace(droplist[counter], "");	
 		}	
 		while(name.indexOf(droplist[counter]) > 0){
-			console.log("Checking name");
 			name = name.replace(droplist[counter], "");	
 		}	
 		while(artist.indexOf(droplist[counter]) > 0){
-			console.log("Checking artist");
 			artist = artist.replace(droplist[counter], "");	
 		}	
 	}//end for
-  	
-  	
-  	var url = "add.php";
+    
+    console.log(id + "  " + name + "  " + artist);
+   
+   //console.log("SongArray" + songArray);
+   //console.log("TitleArray" + titleArray);
+   //console.log("ArtistArray" + artistArray);
+  
+   //console.log("SongArray" + songArray);
+   //console.log("TitleArray" + titleArray);
+   //console.log("ArtistArray" + artistArray);
+   
+   
+   
+    var new_time = secondstotime(time);
+    
+    var sID;
+ 	var url = "add.php";
 	url = url.concat("?album=" + album);
 	url = url.concat("&vID=" + id);
 	url = url.concat("&plays=0");
@@ -169,12 +158,50 @@ function SearchiTunes(sender) {
 	console.log(url);
 	//?album=testAlbum&vID=testID&plays=0&genre=HipHop&title=title&time=00:00:00&artist=tim
 	
-	$.get(url);
+	$.get(url).done(function(data) {
+  	sID = data;
+  	
+   
+    var index = songArray.length;
+    
+    var html = "<tr id=\"" + index + "\"title=\"" + sID + "\" name=\"" + id + "\" ondblclick=\"play(this);\" onmousedown=\"select(this);\">"; 
+   	html = html.concat("<td width=\"20px\" style=\"min-width:20px;max-height:29px\">"); 
+   	html = html.concat("<div id=\"" + index + " front\" style=\"width:100%;height:20px;overflow:hidden;\"></div></td>");
+    html = html.concat("<td width=\"316px\" style=\"min-width:316px;max-height:29px\">");
+    html = html.concat("<div id=\"" + index + " name\" style=\"width:100%;height:20px;overflow:hidden;\">" + name + "</div></td>");
+    html = html.concat("<td width=\"16px\" style=\"min-width:76px;max-height:29px\">");
+    html = html.concat("<div id=\"" + index + " time\" style=\"width:100%;height:20px;overflow:hidden;\">" + new_time + "</div></td>");
+    html = html.concat("<td width=\"266px\" style=\"min-width:266px;max-height:29px\">");
+    html = html.concat("<div id=\"" + index + " artist\" style=\"width:100%;height:20px;overflow:hidden;\">" + artist + "</div></td>");
+    html = html.concat("<td width=\"216px\" style=\"min-width:216px;max-height:29px\">");
+    html = html.concat("<div id=\"" + index + " album\" style=\"width:100%;height:20px;overflow:hidden;\">" + album + "</div></td>");
+    html = html.concat("<td width=\"116px\" style=\"min-width:116px;max-height:29px\">");
+    html = html.concat("<div id=\"" + index + " genre\" style=\"width:100%;height:20px;overflow:hidden;\">" + genre + "</div></td>");
+    html = html.concat("<td width=\"100%\"><div style=\"width:100%;height:20px;margin-left:5px;overflow:hidden;\"><!--$plays--><img src=\"images/edit.png\" onclick=\"edit(this);\"  alt=\"edit\"/><img src=\"images/delete-icon.png\" onclick=\"deleteSong(this);\" style=\"margin-left:5px\" alt=\"delete\"/></div></td></tr>");
   
     $("table tbody").append(html); 
     // let the plugin know that we made a update 
     $("table").trigger("update");
     
+   songArray.push(id);
+   titleArray.push(name);
+   artistArray.push(artist);
+    
+    var indexString = index.toString();
+    
+    console.log("Index String" + indexString);
+    
+    var justAdded = document.getElementById(indexString);
+    
+    console.log(justAdded);
+    var toJump = $(justAdded).prev()[0].id;
+    
+    select(justAdded);
+    play(justAdded);
+    
+    var url = "#" + toJump;
+    window.location = url;
+    });
  });
 
 //album', 'vID', 'plays', 'genre', 'sID', 'title', 'time', 'artist')

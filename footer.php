@@ -14,7 +14,7 @@
 	<div id="options">
 		<ul id="opt">
 			<li id="addPL" class="button">
-				<img src="images/addPL.png" alt="some_text" onclick="printSongYTInfo(this)" />
+				<img src="images/addPL.png" alt="some_text" onclick="addPlaylist()" />
 			</li>
 			<li id="shuffle" class="button">
 				<img src="images/shuffle50.png" alt="some_text" onclick="setShuffle(this)" />

@@ -5,7 +5,7 @@
 		if(isset($_SESSION['username'])){
 			$name = $_SESSION['username'];
 			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:2px;\"> 
-				Welcome $name! | 
+				Welcome! | 
 				<a href=\"logout.php\">
 					logout
 				</a>
