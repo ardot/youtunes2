@@ -176,6 +176,29 @@ background: -webkit-linear-gradient(top,rgba(150,150,150,1) 0%, rgba(238,238,238
 	border-style:inset;*/
 
 }
+
+.playlistInput {
+	height:22px;
+	width:90%;
+}
+
+.playlistCategoryTable {
+	width:100%;
+	margin:0px;
+	padding:0px;
+	border-collapse:collapse;
+}
+
+.playlistCategoryTable tr {
+	height:22px;
+}
+
+.playlistName {
+	text-align:left;
+	width:75%; 
+	overflow:hidden;
+}
+
 /*.auto_cursor:hover{
 	cursor:auto;
 }*/

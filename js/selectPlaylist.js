@@ -9,7 +9,6 @@ playlists[0].setAttribute("id", "selectedHeader");
  * 
  */
 function selectPlaylist(sender){
-	console.log("here!");
 	if (selected != sender) {
 		selected.setAttribute("id", "");
 		selected = sender;

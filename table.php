@@ -165,8 +165,8 @@
 										
 											<!--$plays-->
 										
-											<img src=\"images/edit.png\" onclick=\"edit(this);\"  alt=\"edit\"/>
-											<img src=\"images/delete-icon.png\" onclick=\"deleteSong(this);\" alt=\"delete\"/>
+											<img src=\"images/customEdit.png\" onclick=\"edit(this);\" alt=\"edit\"/>
+											<img src=\"images/customExit.png\" onclick=\"deleteSong(this);\" alt=\"delete\"/>
 											
 									</div>
 								</td>

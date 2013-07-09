@@ -166,52 +166,9 @@
 		<?php
 			include 'header.php';
 		?>
-		
-		<div id="leftColumn">
-			<div id="playlistContainer">
-			
-				<div id="playlistScroll" style="margin:0px; padding:0px; height:500px;width:227px;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-				<ul id="playlista">
-					<li class="playlistCategory">
-						
-							<p class="auto_cursor">
-								All Music
-							</p>
-						
-					</li>
-					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
-						
-							<p class="playlistP auto_cursor">
-								My Library
-							</p>
-					</li>
-					<li class="playlistCategory">
-						
-							<p class="auto_cursor">
-								My Playlists
-							</p>
-						
-					</li>
-					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
-						
-						
-						<input class="playlistInput" type="text" name="test" value="test" width="100%"/>
-							<!--p class="playlistP auto_cursor">
-								Playlist 1
-							</p-->
-					</li>
-					<li class="playlist" onclick="selectPlaylist(this)" onmouseup="addSong(this)" onmouseover="highlightPlaylist(this)" onmouseout="unhighlightPlaylist(this)">
-						
-							<p class="playlistP auto_cursor">
-								Playlist 2
-							</p>
-					</li>
-					
-					
-				</ul>
-				</div>
-			</div>
-		</div>
+		<?php
+			include 'leftColumn.php';
+		?>
 		
 		<div id="cont">
 			
@@ -349,11 +306,15 @@
 						if(ytplayer){
    							//set an event listener, and cue the playlist. 
    							ytplayer.addEventListener("onStateChange", "onPlayerStateChange");
+   							ytplayer.addEventListener('onError', 'onPlayerError');
    							//ytplayer.cuePlaylist(songArray,0,0,"small");
    						}//end if
    						setInterval(updatePlayerInfo, 250);
    					}//end initialize player
    					
+   					function onPlayerError(){
+   						console.log('Error');
+   					}
    					//Changes the class of a header when the user clicks on it 
       				function selectHeader(sender){
       					console.log("here");
