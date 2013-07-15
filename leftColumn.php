@@ -1,6 +1,6 @@
 <div id="leftColumn">
-			<div id="playlistContainer">
-			
+			<!--div id="playlistContainer">
+
 				<div id="playlistScroll" style="margin:0px; padding:0px; height:500px;width:227px;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
 				<ul id="playlista">
 					<li class="playlistCategory">
@@ -20,14 +20,14 @@
 									<img src="images/customExit.png" alt="delete"/>
 								</td>
 							</tr>
-					</table>				
-					
+					</table>
+
 					<li class="playlistCategory">
-						
+
 							<p class="auto_cursor">
 								My Playlists
 							</p>
-						
+
 					</li>
 					<table class="playlistCategoryTable">
 							<tr class="playlist" onclick="selectPlaylist(this);">
@@ -50,10 +50,10 @@
 									<img src="images/customExit.png" alt="delete"/>
 								</td>
 							</tr>
-					</table>	
-					
-					
+					</table>
+
+
 				</ul>
 				</div>
-			</div>
+			</div-->
 		</div>
