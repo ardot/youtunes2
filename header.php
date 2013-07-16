@@ -1,35 +1,35 @@
 <div id="header">
-	
+
 	<?php
-	
+
 		if(isset($_SESSION['username'])){
 			$name = $_SESSION['username'];
-			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:2px;\"> 
-				Welcome! | 
+			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:2px;\">
+				Welcome $name! |
 				<a href=\"logout.php\">
 					logout
 				</a>
-			
+
 			</h>");
 		}
-		
+
 	?>
 			<div id="headerContent">
 			<!--ul id="horzlist"-->
 				<div id="playControls">
 					<ul id="navi">
 						<li id="back">
-							<img class="buttons" src="images/back.png" alt="some_text" onclick="back()"/>
+							<img class="buttons" src="images/back2.png" alt="some_text" onclick="back()"/>
 						</li>
 						<li id="play" >
-							<img class="buttons" id="playImage" src="images/play.png" onclick="pause(this)" alt="some_text" id="playButton"/>
+							<img class="buttons" id="playImage" src="images/play2.png" onclick="pause(this)" alt="some_text" id="playButton"/>
 						</li>
 						<li id="forward">
-							<img class="buttons" src="images/forward.png" alt="some_text" onclick="forward()"/>
+							<img class="buttons" src="images/forward2.png" alt="some_text" onclick="forward()"/>
 						</li>
 					</ul>
 				</div>
-				
+
 				<div id="playerConsole">
 					<!--div id="videoDiv"></div-->
 					<!--div id="videoDiv"></div-->
@@ -39,18 +39,18 @@
 								Welcome to youTunes
 							</h4>
 							<h4 id="artistPane" class="fixedText">
-					
+
 								(| ' _ ' |)
 							</h4>
 							</div>
 							<div id="progressBar">
 								<div id="loaded">
 							</div>
-						
+
 							<div id="completed">
 							</div>
-						
-						</div>	
+
+						</div>
 					</div>
 				</div>
 				<div id="search">

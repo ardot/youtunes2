@@ -36,15 +36,7 @@
 			$username = $row['username'];
 			$password = $row['password'];
       $uID = $row['uID'];
-      $salt = $row['salt'];
-
-      print("<h> $username </h>");
-      print("<h> $password </h>");
-      print("<h> $uID </h>");
-      print("<h> $salt </h>");
-
-      // User number where salt was added
-      if ($uID < 19) {
+      if (isset($row['salt'])) {
         if ($password === $passwd) {
           $_SESSION['username'] = $username;
           $_SESSION['uid'] = $uID;
@@ -52,7 +44,7 @@
           $found = 1;
         }
       } else {
-        print("<h> Passwd Before: $passwd </h>");
+        $salt = $row['salt'];
         $salty = $passwd . $salt;
         $passwd = hash("sha256", $salty);
         print("<h> Passwd After: $passwd </h>");
@@ -71,7 +63,6 @@
 	else {
 		$_SESSION['login_error'] = "You must enter both a username and a password!";
 	}
-
-  //header("Location: index.php");
+  header("Location: index.php");
 ?>
 

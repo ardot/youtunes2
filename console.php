@@ -482,10 +482,10 @@
    								}
    						}
    						else if(newState == 1){
-   							playButton.src = "images/pause.png";
+   							playButton.src = "images/pause2.png";
    						}
    						else if(newState == 2){
-   							playButton.src = "images/play.png";
+   							playButton.src = "images/play2.png";
    						}
 
    					}

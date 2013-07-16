@@ -5,7 +5,7 @@
 }
 #play{
 	position:relative;
-	top:8px;
+	top:11px;
 }
 #spacer{
     height:250px;
@@ -744,13 +744,13 @@ input{
 #playerConsole{
 	position:relative;
 	left:335px;
-	top:-93px;
+	top:-82px;
 	
 }
 #search{
 	position:relative;
 	left:1000px;
-	top:-162px;
+	top:-150px;
 }
 
 body{
