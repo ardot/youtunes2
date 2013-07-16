@@ -1,12 +1,19 @@
 <?php
 	session_start();
 
-	function encrypt_password($text) {
-		$salty = $test . "Friends to this ground. And leigemen to the Dane!";
-		return hash("sha256", $salty);
+	function encrypt_password($password, $salt) {
+		$salty = $password . $salt;
+    return hash("sha256", $salty);
 	}
 
-	print("<p> Here </p>");
+  function generateSalt($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $randomString;
+  }
 
 	// check to see if the user has attempted to log in
 	if (isset($_POST['username_new']) &&
@@ -44,12 +51,16 @@
 				$_SESSION['login_error'] = "A user with that email already exists!";
 			}
 			else {
-				$insert = sprintf("INSERT INTO  Users
-            (username, password)
+        $salt = generateSalt();
+        $passwd = encrypt_password($passwd, $salt);
+				$insert = sprintf(
+          "INSERT INTO  Users
+            (username, password, salt)
 					VALUES
-            (\"%s\", \"%s\")",
+            (\"%s\", \"%s\", \"%s\")",
           mysql_real_escape_string($username),
-					mysql_real_escape_string($passwd));
+					mysql_real_escape_string($passwd),
+          $salt);
 
         $result2 = mysql_query($insert);
         $error = mysql_error();
