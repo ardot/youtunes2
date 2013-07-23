@@ -1,7 +1,3 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -189,59 +185,76 @@
 
 
 					<?php
-
 						$db = mysql_connect("localhost","root", "root");
-
-						//check to see if the database was connected to successfully
-    					if (!$db){
-       						echo "Could not connect to database" . mysql_error();
-        					exit();
-    					}//end if
-
-						//try to connect to the specific database, kill the thread if not
+    				if (!$db) {
+       				echo "Could not connect to database" . mysql_error();
+        			exit();
+    				}
 						$db_name = "youtunes";
-   		 				if (!mysql_select_db($db_name, $db)){
-        					die ("Could not select database") . mysql_error();
-    					}//end if
-
-						if($uID == 1){
+   		 		  if (!mysql_select_db($db_name, $db)) {
+        		  die ("Could not select database") . mysql_error();
+    			  }
+            // For root user, get all songs
+						if ($uID == 1) {
 							$query = "SELECT * FROM Songs";
 						}
 						else{
-    						$query= "SELECT * FROM Songs INNER JOIN ((SELECT song FROM HasSong WHERE user=" .mysql_real_escape_string($uID). ") AS T) ON Songs.sID=T.song";
+    						$query =
+                  "SELECT * FROM Songs
+                  INNER JOIN (
+                    (SELECT song FROM HasSong
+                    WHERE user=" .mysql_real_escape_string($uID). ")
+                    AS T
+                  )
+                  ON Songs.sID=T.song";
 						}
+						$sql = mysql_query($query);
 
-						$sql=mysql_query($query);
-    					//$sql=mysql_query("select * from Songs");
-
-						//counts the number of songs and stores them for communication with Javascript later
-    					$index = 0;
+            // Counts the number of songs
+            // Stores them for communication with Javascript later
+    				$index = 0;
 						$songs= array();
-
-
-    					while($row=mysql_fetch_assoc($sql)){
-
-							$vID = $row['vID'];
-							$title = $row['title'];
-							$time = $row['time'];
-							$artist = $row['artist'];
-							$plays = $row['plays'];
-							$genre = $row['genre'];
-							$sID = $row['sID'];
-							$album = $row['album'];
-
-
-							$songs[$index] = array('vID' => $vID, 'title' => $title, 'time' => $time, 'artist' => $artist, 'plays' => $plays, 'genre' => $genre, 'sID' => $sID, 'album' => $album);
-
-							//increment the counter so that the next video gets the next index
+    			  while ($row = mysql_fetch_assoc($sql)) {
+							$songs[$index] = array(
+                'vID' => $row['vID'],
+                'title' => $row['title'],
+                'time' => $row['time'],
+                'artist' => $row['artist'],
+                'plays' => $row['plays'],
+                'genre' => $row['genre'],
+                'sID' => $row['sID'],
+                'album' => $row['album']
+              );
 							$index++;
-						}//end while
+						}
+            /*if ($uID === 1) {
+              $playlist_query = "SELECT * FROM Playlists";
+					  } else {
+              $playlist_query =
+                "SELECT * FROM Playlists
+                INNER JOIN (
+                  (SELECT pID FROM UserHasPlaylist
+                  WHERE uID=" .mysql_real_escape_string($uID). ")
+                  AS T)
+                ON Playlists.pID=T.pID";
+            }
+            $playlist_results = mysql_query($playlist_query);
+            $playlist_index = 0;
+            $playlists = array();
+            while ($row = mysql_fetch_assoc($playlist_results)) {
+              $playlists[$playlist_index] = array(
+                'pID' = $row['pID'];
+                'name' = $row['name'];
+              );
+              $playlist_index;
+            }*/
 
-
-					?>
+          ?>
 
 				<script type="text/javascript" src="js/editSongs.js"></script>
-				<script type="text/javascript">
+				<script type="text/javascript" src="js/editPlaylists.js"></script>
+
+        <script type="text/javascript">
 					var selected=-1;
 					var progress=document.getElementById('completed');
 					var loadedBar=document.getElementById('loaded');
@@ -287,17 +300,14 @@
 									}
 									print("\";");
 								?>
-						//console.log(songs);
 						var infoArray = songs.split(";");
 
 
 						//run through the info and store them in songArray, titleArray, and artistArray accordingly
 						for(var i = 0; i < infoArray.length; i++){
-
 							var spltArr = infoArray[i].split("<>");
 							var id = spltArr[3];
 							index_map[id] = i;
-
 							songArray[i] = spltArr[0];
 							titleArray[i] = spltArr[1];
 							artistArray[i] = spltArr[2];
@@ -396,47 +406,49 @@
    					}//end setLoop
 
    					function chooseNextSong(next){
-   						//loop!
-   								if(loop==1){
-   									console.log("here!");
-   									var row = $(playing).next();
-
-   									if(next == 0){
+   						    //loop!
+   								if (loop==1) {
+   									console.log("here");
+                    var row = $(playing).next();
+                    if (next == 0) {
    										row =$(playing).prev();
    									}
 
+                    while (row[0].display != 'none') {
+                       row = $(playing).next();
+                       if (next == 0) {
+   										  row =$(playing).prev();
+   									   }
+                    }
 
-   									console.log(row);
-   									if(row.length == 0){
-   										console.log("here!");
-
+                    if (row.length == 0) {
    										play(playing.parentNode.childNodes[2]);
    									}
-   									else{
+   									else {
    										play(row[0]);
    									}
    								}
    								//if shuffle is set, play a random song
-   								else if(shuffle == true){
+   								else if (shuffle == true) {
 
    									var nodes = playing.parentNode.childNodes;
-
-   									//ytplayer.stopVideo();
    									var nextSong=Math.floor(Math.random() * Object.keys(index_map).length);
-
+                    console.log(nodes[nextSong + 2].style.display);
    									play(nodes[nextSong + 2]);
-   									//console.log("Next song:" + nextSong + "\n\n");
-   									//PlayIndex(nextSong);
-   								}//end if
-   								//TODO otherwise somehow determine the next song
-   								else{
-   									var row = $(playing).next();
-
-   									if(next == 0){
-   										row =$(playing).prev();
+   								}
+   								else {
+                    var row = $(playing).next();
+   									if (next == 0) {
+   										row = $(playing).prev();
    									}
-
-   									if(row.length > 0){
+                    while (row[0].style.display == 'none') {
+                       console.log(row[0].style.display);
+                       row = $(row[0]).next();
+                       if (next == 0) {
+   										  row =$(row[0]).prev();
+   									   }
+                    }
+   									if (row.length > 0) {
    										play(row[0]);
    									}
    								}

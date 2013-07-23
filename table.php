@@ -90,10 +90,10 @@
 				$db = mysql_connect("localhost","root", "root");
 
 				//check to see if the database was connected to successfully
-    			if (!$db){
-       				echo "Could not connect to database" . mysql_error();
-        			exit();
-    			}//end if
+    		if (!$db){
+       		echo "Could not connect to database" . mysql_error();
+        	exit();
+    		}//end if
 
 				//try to connect to the specific database, kill the thread if not
 				$db_name = "youtunes";
@@ -108,7 +108,12 @@
 					$query = "SELECT * FROM Songs";
 				}
 				else{
-    				$query= "SELECT * FROM Songs INNER JOIN ((SELECT song FROM HasSong WHERE user=" .mysql_real_escape_string($uID). ") AS T) ON Songs.sID=T.song";
+    				$queryi =
+              "SELECT * FROM Songs
+              INNER JOIN (
+              (SELECT song FROM HasSong
+                  WHERE user=" .mysql_real_escape_string($uID). ")
+                  AS T) ON Songs.sID=T.song";
 				}
 
 				$sql=mysql_query($query);
