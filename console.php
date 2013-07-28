@@ -7,6 +7,7 @@
     <script src="js/googlejsapi.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/ytsearch.js"></script>
     <script type="text/javascript" src="js/apprise/apprise-1.5.min.js"></script>
+    <script type="text/javascript" src="js/dragAndDrop.js"></script>
 
     </head>
     <script type="text/javascript">

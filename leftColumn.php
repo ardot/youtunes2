@@ -65,12 +65,14 @@
                       </p>
                     </td>
                     <td>
+                      <p>
                       <img src=\"images/edit.png\"
                         onclick=\"editPlaylist(this);\"
                         alt=\"edit\"/>
                       <img src=\"images/delete-icon.png\"
                         onclick=\"deletePlaylist(this);\"
                         alt=\"delete\"/>
+                      </p>
                     </td>
                   </tr>");
 
