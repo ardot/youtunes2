@@ -106,7 +106,7 @@
 					$query = "SELECT * FROM Songs";
 				}
 				else{
-    				$queryi =
+    				$query =
               "SELECT * FROM Songs
               INNER JOIN (
               (SELECT song FROM HasSong
