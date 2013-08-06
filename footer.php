@@ -30,9 +30,11 @@
 						<div id=\"search-results-block\"></div>
 					</div>
 				</div>	");
-		}
+		 print("<div id=\"smiley\">
+              <img id=\"smileyImage\" src=\"images/smiley3.png\" alt=\"smiley\"/>
+            </div>");
+    }
 	?>
-
 </ul>
 
 <!--input type="submit" value="Search" onclick="javascript:SearchYouTube(document.getElementById('queryinput').value)" /-->

@@ -54,10 +54,8 @@
 					</div>
 				</div>
 				<div id="search">
-					<form class="filter more">
-						<script src="js/filterTable.js" type="text/javascript"></script>
-						<input type="text" name="search" id="searc" size="40" onkeyup="filter(this);"/>
-					</form>
+					<script src="js/filterTable.js" type="text/javascript"></script>
+					<input type="text" name="search" id="searc" size="40" onkeyup="filter(this);"/>
 				</div>
 			<!--/ul-->
 			</div>

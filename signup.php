@@ -37,9 +37,12 @@
 		$passwd_conf = $_POST['passwdconf_new'];
 
 		if (strcmp($passwd, $passwd_conf) != 0) {
-			$_SESSION['login_error'] = "Password and Confirm Password do not match!";
-		}
-		else {
+			$_SESSION['login_error'] = "Password and Confirm Password do not match.";
+		} else if (strlen($passwd) < 6) {
+      $_SESSION['login_error'] = "Password must be at least 6 characters long.";
+    } else if (strlen($username) < 4 || strlen($username) > 16) {
+      $_SESSION['login_error'] = "Username must be inbetween 4 and 16 characters.";
+		} else {
 			$query = "SELECT * FROM Users WHERE username='" .mysql_real_escape_string($username). "'";
 			$result = mysql_query($query);
 			$continue = false;
@@ -48,7 +51,7 @@
 				$continue = true;
 			}
 			if ($continue) {
-				$_SESSION['login_error'] = "A user with that email already exists!";
+				$_SESSION['login_error'] = "A user with that email already exists.";
 			}
 			else {
         $salt = generateSalt();
@@ -74,7 +77,7 @@
 					$found = true;
 				}
 				if (!$found) {
-					$_SESSION['login_error'] = "Error while adding user, please try again!";
+					$_SESSION['login_error'] = "Error while adding user, please try again.";
           $_SESSION['uid'] = -1;
           $_SESSION['username'] = "";
 				}
@@ -83,7 +86,7 @@
 
 
 	} else {
-		$_SESSION['login_error'] = "Please fill out all of the required fields!";
+		$_SESSION['login_error'] = "Please fill out all of the required fields.";
 	}
 
 	header("Location: index.php");

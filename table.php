@@ -32,14 +32,12 @@
 	</script>
 	<script type="text/javascript">
 		var previousRow = null;
-
+    var clickedOnSong = null;
 
 		function select(sender){
-
-
+      clickedOnSong = sender;
 			if (previousRow == null){
 				previousRow = sender;
-
 			}
 			else{
 				var prevIndex = previousRow.getAttribute("class");
@@ -70,7 +68,7 @@
 
 
 	<table class="tablesorter filterable more" id="songTable">
-		<thead class="playlistCategory" style="position:fixed;margin-left:-22px;border-bottom:solid; border-width:thin; border-color:gray">
+		<thead id="songTableHead" class="playlistCategory" style="position:fixed;margin-left:-22px;border-bottom:solid; width:100%;  border-width:thin; border-color:gray">
 			<tr>
 				<th width="20px" style="min-width:20px"></th>
 				<th width="300px" style="min-width:300px">Name</th>
@@ -81,7 +79,7 @@
 				<th width="100%">Edit</th>
 			</tr>
 		</thead>
-		<tbody >
+		<tbody id="songTableBody" >
 
 
 

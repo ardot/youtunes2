@@ -225,7 +225,7 @@ function SearchiTunes(sender) {
 	});*/
 	var searchBar = document.getElementById("queryinput");
 	searchBar.setAttribute("value", "search youtube");
-	contractSearch();
+	contractSearch(true);
 
     return false;
 }
@@ -367,12 +367,12 @@ function createForm(vID, name){
  */
 function expandSearch(){
 	var searchPane = document.getElementById("ytsearch");
-
 	var resultPane = document.getElementById("resultPane");
-
 	var upOrDown = document.getElementById("upordown");
+  var smiley = document.getElementById('smileyImage');
 
-	upOrDown.setAttribute("src", "images/down.png");
+  smiley.setAttribute('src', 'images/smiley2.png');
+  upOrDown.setAttribute("src", "images/down.png");
 	searchPane.setAttribute("class", "ytopen");
 	resultPane.style.display = "block";
 }
@@ -382,33 +382,35 @@ function expandSearch(){
  *
  * Contracts the "youtube" search pane so the user can view the music table
  */
-function contractSearch(){
-	var searchPane = document.getElementById("ytsearch");
+function contractSearch(insert){
+	var searchPane = document.getElementById('ytsearch');
+	var resultPane = document.getElementById('resultPane');
+	var upOrDown = document.getElementById('upordown');
+  var smiley = document.getElementById('smileyImage');
 
-	var resultPane = document.getElementById("resultPane");
+  if (insert) {
+    smiley.setAttribute('src', 'images/smiley1.png');
+    setTimeout(function(){
+      smiley.setAttribute('src', 'images/smiley3.png');
+    }, 3000);
+  } else {
+    smiley.setAttribute('src', 'images/smiley3.png');
+  }
 
-	var upOrDown = document.getElementById("upordown");
-
-
-	searchPane.setAttribute("class", "ytclosed");
-
-	resultPane.style.display = "none";
-
-	upOrDown.setAttribute("src", "images/up.png");
+	searchPane.setAttribute('class', 'ytclosed');
+	resultPane.style.display = 'none';
+	upOrDown.setAttribute('src', 'images/up.png');
 }
 
 function searchChange(){
-
 	if(up == true){
-
-		contractSearch();
+		contractSearch(false);
 		up = false;
 	}
 	else{
 		expandSearch();
 		up = true;
 	}
-
 }
 
 function clear(){

@@ -55,10 +55,33 @@
                 AS T) ON Playlists.pID=T.pID";
 		          $sql=mysql_query($query);
 
-		          while($row=mysql_fetch_assoc($sql)){
+              $playlists = array();
+              $playlist_index = 0;
+
+		          while ($row=mysql_fetch_assoc($sql)) {
                 $playlist_name = $row['name'];
+                $pID = $row['pID'];
+
+                $playlist_query =
+                  "SELECT sID FROM Songs
+                  INNER JOIN (
+                  (SELECT sID from PlaylistHasSong
+                  WHERE pID=" .mysql_real_escape_string($pID). ")
+                  AS T) on Songs.sID=T.sID";
+                $playlist_songs_results = mysql_query($playlist_query);
+                $playlist_songs = array();
+                $song_index = 0;
+
+                while ($song = mysql_fetch_assoc($playlist_songs_results)) {
+                  $playlist_songs[$song_index] = array(
+                    'sID' => $song['sID'],
+                  );
+                  $song_index++;
+                }
+                $playlists[$pID] = $playlist_songs;
+                $playlist_index++;
                 print(
-                  "<tr class=\"playlist\" onclick=\"selectPlaylist(this);\">
+                  "<tr name=\"$pID\" class=\"playlist\" onclick=\"selectPlaylist(this);\">
                     <td class=\"playlistName\">
                       <p class=\"playlistP\">
                         $playlist_name
@@ -79,7 +102,21 @@
               }
 					?>
           </table>
+          <script type="text/javascript">
 
+            <?php
+              //Prints the playlist IDs and
+               print("var playlists = \"");
+               foreach ($playlists as $pID => $playlist_songs) {
+                 print("$pID: ");
+                 foreach ($playlists_songs as $sID) {
+                   print("$sID <>");
+                 }
+               }
+               print("\";");
+            ?>
+            console.log(playlists);
+          </script>
 
 				</ul>
 				</div>

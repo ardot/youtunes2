@@ -166,7 +166,9 @@
 		<?php
 			include 'leftColumn.php';
 		?>
-
+	  <?php
+			include 'footer.php';
+		?>
 		<div id="cont">
 
 			<!--div id="rightColumn"></div-->
@@ -478,9 +480,6 @@
    					//Handles the state changes accordingly
    					function onPlayerStateChange(newState){
    						//TODO When a song has ended, increment its play count, find the next song, and play that one
-
-						console.log(newState);
-
    						if(newState == 0){
    							//if(justChose == false){
    								//console.log("Song ended " + shuffle + "  " + justChose);
@@ -587,19 +586,8 @@
    					}//end playIndex*/
 
    				</script>
-
-
 			</div>
-
-
-
-
 		</div>
-
-		<?php
-			include 'footer.php';
-		?>
-
 	</body>
 </html>
 
