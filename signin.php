@@ -36,7 +36,7 @@
 			$username = $row['username'];
 			$password = $row['password'];
       $uID = $row['uID'];
-      if (isset($row['salt'])) {
+      if (!isset($row['salt'])) {
         if ($password === $passwd) {
           $_SESSION['username'] = $username;
           $_SESSION['uid'] = $uID;
@@ -47,7 +47,6 @@
         $salt = $row['salt'];
         $salty = $passwd . $salt;
         $passwd = hash("sha256", $salty);
-        print("<h> Passwd After: $passwd </h>");
         if ($password === $passwd) {
           $_SESSION['username'] = $username;
           $_SESSION['uid'] = $uID;
