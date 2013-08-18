@@ -36,7 +36,8 @@
 			$username = $row['username'];
 			$password = $row['password'];
       $uID = $row['uID'];
-      if ($uid < 20) {
+      print((intval($uID) < 20));
+      if (intval($uid) === 1) {
         if ($password === $passwd) {
           $_SESSION['username'] = $username;
           $_SESSION['uid'] = $uID;
@@ -62,6 +63,7 @@
 	else {
 		$_SESSION['login_error'] = "You must enter both a username and a password!";
 	}
+
   header("Location: index.php");
 ?>
 
