@@ -55,9 +55,14 @@
 		$last_int_id = $row[0];
 	}
 
-	$has_song_insert = "INSERT INTO HasSong (song, user, plays) VALUES ($last_int_id, " .mysql_real_escape_string($uID). ", 0)";
+	$has_song_insert =
+    "INSERT INTO HasSong
+      ('song', 'user', 'plays')
+    VALUES
+      ('$last_int_id', '" .mysql_real_escape_string($uID). "', '0')";
   $result2 = mysql_query($has_song_insert);
 
+  print("Result: $has_song_insert /n");
 	mysql_close($db);
 
 	echo $last_int_id;
