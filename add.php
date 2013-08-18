@@ -25,12 +25,13 @@
 
 
 
-	if((!isset($_GET['album'])) || (!isset($_GET['time'])) || (!isset($_GET['vID'])) || (!isset($_GET['plays']))){
-		echo "Invalid call to this function";
-		exit();
-	}
-
-	if((!isset($_GET['genre'])) || (!isset($_GET['artist'])) || (!isset($_GET['title']))){
+	if (!isset($_GET['album']) ||
+      !isset($_GET['time']) ||
+      !isset($_GET['vID']) ||
+      !isset($_GET['plays'])
+      !isset($_GET['genre']) ||
+      !isset($_GET['artist']) ||
+      !isset($_GET['title'])) {
 		echo "Invalid call to this function";
 		exit();
 	}
@@ -44,7 +45,25 @@
 	$artist = $_GET['artist'];
   $uID = $_SESSION['uid'];
 
-  $query = "INSERT INTO  `youtunes`.`Songs` (`sID`, `title`, `time`, `artist`, `genre`, `plays`, `vID`, `album`) VALUES (NULL ,  '$title',  '$time',  '$artist',  '$genre',  '0',  '$vID',  '$album')";
+  $query =
+    "INSERT INTO  `youtunes`.`Songs`
+      (`sID`,
+        `title`,
+        `time`,
+        `artist`,
+        `genre`,
+        `plays`,
+        `vID`,
+        `album`)
+    VALUES
+      (NULL ,
+        '$title',
+        '$time',
+        '$artist',
+        '$genre',
+        '0',
+        '$vID',
+        '$album')";
 	mysql_query($query);
 
 	$last_id_query = "SELECT LAST_INSERT_ID();";
@@ -56,11 +75,18 @@
 	}
 
 	$has_song_insert =
-    "INSERT INTO HasSong
-      ('song', 'user', 'plays')
-    VALUES
-      ('$last_int_id', '" .mysql_real_escape_string($uID). "', '0')";
+    "INSERT INTO  `youtunes`.`HasSong` (
+      `user` ,
+      `song` ,
+      `plays`
+    ) VALUES (
+      '" .mysql_real_escape_string($uID). "',
+      '$last_int_id',
+      '0');";
+
   $result2 = mysql_query($has_song_insert);
+  echo mysql_error();
+
 
   print("Result: $has_song_insert /n");
 	mysql_close($db);
