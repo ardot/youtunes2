@@ -28,7 +28,7 @@
 	if (!isset($_GET['album']) ||
       !isset($_GET['time']) ||
       !isset($_GET['vID']) ||
-      !isset($_GET['plays'])
+      !isset($_GET['plays']) ||
       !isset($_GET['genre']) ||
       !isset($_GET['artist']) ||
       !isset($_GET['title'])) {
