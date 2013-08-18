@@ -1,3 +1,4 @@
+var playlists = $('.playlist');
 var selected = playlists[0];
 playlists[0].setAttribute("id", "selectedHeader");
 console.log(playlists);

@@ -49,6 +49,7 @@ function acceptPlaylistEdit(sender) {
   console.log(playlistInput.value);
   playlistDiv.innerHTML = playlistInput.value;
 
+  var url = "addPlaylist.php";
   // TODO insert ajax call to update DBs
 
   cancelPlaylistEdit(sender);

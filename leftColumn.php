@@ -62,7 +62,7 @@
                 $playlist_name = $row['name'];
                 $pID = $row['pID'];
 
-                $playlist_query =
+                /* $playlist_query =
                   "SELECT sID FROM Songs
                   INNER JOIN (
                   (SELECT sID from PlaylistHasSong
@@ -79,7 +79,7 @@
                   $song_index++;
                 }
                 $playlists[$pID] = $playlist_songs;
-                $playlist_index++;
+                $playlist_index++;*/
                 print(
                   "<tr name=\"$pID\" class=\"playlist\" onclick=\"selectPlaylist(this);\">
                     <td class=\"playlistName\">
@@ -106,18 +106,17 @@
 
             <?php
               //Prints the playlist IDs and
-               print("var playlists = \"");
+               /*print("var playlists_printed = \"");
                foreach ($playlists as $pID => $playlist_songs) {
                  print("$pID: ");
                  foreach ($playlists_songs as $sID) {
                    print("$sID <>");
                  }
                }
-               print("\";");
+               print("\";");*/
             ?>
-            console.log(playlists);
+            // console.log(playlists_printed);
           </script>
-
 				</ul>
 				</div>
 			</div>
