@@ -37,7 +37,7 @@
 			$password = $row['password'];
       $uID = $row['uID'];
       print((intval($uID) < 20));
-      if (intval($uid) === 1) {
+      if (intval($uID) === 1) {
         if ($password === $passwd) {
           $_SESSION['username'] = $username;
           $_SESSION['uid'] = $uID;
