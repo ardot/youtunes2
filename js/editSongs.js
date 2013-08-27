@@ -139,6 +139,10 @@ function acceptEdit(sender){
   $("table").trigger("update");
 
 	var sID = editingRow.getAttribute("title");
+  var sIndex = parseInt(editingRow.getAttribute("id"));
+
+  titleArray[sIndex] = inputName.value;
+  artistArray[sIndex] = inputArtist.value;
 
 	var url = "update.php";
 	url = url.concat("?sID=" + sID);
