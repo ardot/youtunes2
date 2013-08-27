@@ -36,24 +36,14 @@
 			$username = $row['username'];
 			$password = $row['password'];
       $uID = $row['uID'];
-      print((intval($uID) < 20));
-      if (intval($uID) === 1) {
-        if ($password === $passwd) {
-          $_SESSION['username'] = $username;
-          $_SESSION['uid'] = $uID;
-          $_SESSION['login_error'] = NULL;
-          $found = 1;
-        }
-      } else {
-        $salt = $row['salt'];
-        $salty = $passwd . $salt;
-        $passwd = hash("sha256", $salty);
-        if ($password === $passwd) {
-          $_SESSION['username'] = $username;
-          $_SESSION['uid'] = $uID;
-          $_SESSION['login_error'] = NULL;
-          $found = 1;
-        }
+      $salt = $row['salt'];
+      $salty = $passwd . $salt;
+      $passwd = hash("sha256", $salty);
+      if ($password === $passwd) {
+        $_SESSION['username'] = $username;
+        $_SESSION['uid'] = $uID;
+        $_SESSION['login_error'] = NULL;
+        $found = 1;
       }
 		}
 		if($found == 0) {
