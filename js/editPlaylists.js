@@ -34,6 +34,7 @@ function editPlaylist(sender){
   editingPlaylist = sender.parentNode.parentNode.parentNode;
 
   editingPlaylist.setAttribute("style", "display:none");
+  editingPlaylist.parentNode.insertBefore(inputPlaylistRef, editingPlaylist);
 
   playlistDiv = $(editingPlaylist).find(".playlistP")[0];
   playlistName = playlistDiv.innerHTML;

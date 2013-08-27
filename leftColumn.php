@@ -49,10 +49,16 @@
 
              $query=
                 "SELECT * FROM Playlists
-                INNER JOIN (
-                (SELECT pID FROM UserHasPlaylist
-                WHERE uID=" .mysql_real_escape_string($uID). ")
-                AS T) ON Playlists.pID=T.pID";
+                  INNER JOIN (
+                    (SELECT
+                      pID
+                    FROM
+                      UserHasPlaylist
+                    WHERE
+                      uID=" .mysql_real_escape_string($uID). ")
+                  AS T)
+                  ON Playlists.pID=T.pID";
+
 		          $sql=mysql_query($query);
 
               $playlists = array();
@@ -62,24 +68,29 @@
                 $playlist_name = $row['name'];
                 $pID = $row['pID'];
 
-                /* $playlist_query =
-                  "SELECT sID FROM Songs
-                  INNER JOIN (
-                  (SELECT sID from PlaylistHasSong
-                  WHERE pID=" .mysql_real_escape_string($pID). ")
-                  AS T) on Songs.sID=T.sID";
+                $playlist_query =
+                  "SELECT
+                    sID
+                  FROM
+                    PlaylistHasSong
+                  WHERE
+                    pID='" .mysql_real_escape_string($pID). "'";
                 $playlist_songs_results = mysql_query($playlist_query);
                 $playlist_songs = array();
                 $song_index = 0;
 
                 while ($song = mysql_fetch_assoc($playlist_songs_results)) {
+                  $to_print = $song['sID'];
+                  print("<h id=\"test_printing\"> $to_print </h>");
                   $playlist_songs[$song_index] = array(
                     'sID' => $song['sID'],
                   );
                   $song_index++;
                 }
+                $song_to_print = $playlist_songs[0];
+                print("<h id=\"test_printing\"> $song_to_print` </h>");
                 $playlists[$pID] = $playlist_songs;
-                $playlist_index++;*/
+                $playlist_index++;
                 print(
                   "<tr name=\"$pID\" class=\"playlist\" onclick=\"selectPlaylist(this);\">
                     <td class=\"playlistName\">
@@ -106,16 +117,17 @@
 
             <?php
               //Prints the playlist IDs and
-               /*print("var playlists_printed = \"");
-               foreach ($playlists as $pID => $playlist_songs) {
-                 print("$pID: ");
-                 foreach ($playlists_songs as $sID) {
-                   print("$sID <>");
+               print("var playlists_printed = \"");
+               foreach ($playlists as $pID => $z_playlist_songs) {
+                 print("$pID: $z_playlist_songs");
+                 foreach ($z_playlists_songs as $xyz => $xyz_playlist_song) {
+                   print("$xyz <> $xyz_playlist_song <>");
                  }
                }
-               print("\";");*/
+               print("\";");
             ?>
-            // console.log(playlists_printed);
+            console.log("Hitting the playlist printing");
+            console.log(playlists_printed);
           </script>
 				</ul>
 				</div>
