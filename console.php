@@ -188,7 +188,9 @@
 
 
 					<?php
-						$db = mysql_connect("localhost","root", "root");
+            include 'constants.php';
+
+            $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
     				if (!$db) {
        				echo "Could not connect to database" . mysql_error();
         			exit();

@@ -1,14 +1,16 @@
 <?php
 
+	include 'constants.php';
+
   /*
 	if(!isset($_SESSION['username'])){
 		echo "Not logged in!";
 		exit();
 	}*/
 
-	$db = mysql_connect("localhost","root", "root");
+  $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
 
-	//check to see if the database was connected to successfully
+  //check to see if the database was connected to successfully
   if (!$db){
     echo "Could not connect to database" . mysql_error();
     exit();
