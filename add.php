@@ -1,5 +1,9 @@
 <?php
-	session_start();
+  // User must have a valid session to proceed
+	if(!isset($_SESSION['uid'])){
+		echo "Not logged in!";
+		exit();
+	}
 
 	$db = mysql_connect("localhost","root", "root");
 

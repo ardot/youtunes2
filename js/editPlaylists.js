@@ -12,7 +12,7 @@ var editingPlaylist;
 
 var playlistInput;
 var playlistName;
-
+var playlistEditingID;
 
 function addPlaylistInput() {
   console.log("here!");
@@ -34,6 +34,7 @@ function editPlaylist(sender){
   editingPlaylist = sender.parentNode.parentNode.parentNode;
 
   editingPlaylist.setAttribute("style", "display:none");
+  playlistEditingID = editingPlaylist.getAttribute("name");
   editingPlaylist.parentNode.insertBefore(inputPlaylistRef, editingPlaylist);
 
   playlistDiv = $(editingPlaylist).find(".playlistP")[0];
@@ -47,11 +48,14 @@ function editPlaylist(sender){
 }
 
 function acceptPlaylistEdit(sender) {
-  console.log(playlistInput.value);
   playlistDiv.innerHTML = playlistInput.value;
 
-  var url = "addPlaylist.php";
-  // TODO insert ajax call to update DBs
+  console.log(playlistEditingID);
+  console.log(playlistInput.value);
+  var url = "updatePlaylist.php";
+  url = url.concat("?pID=" + playlistEditingID);
+	url = url.concat("&name=" + playlistInput.value);
+	$.ajax(url);
 
   cancelPlaylistEdit(sender);
 }
@@ -106,4 +110,8 @@ function addNewPlaylist() {
 
   inputPlaylistRef = $("#playlistInputRow")[0];
   playlistInput = $('.playlistInput')[0];
+
+  var url = "addPlaylist.php";
+  url = url.concat("?name= ");
+  $.ajax(url);
 }
