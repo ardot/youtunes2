@@ -71,7 +71,12 @@ function deletePlaylist(sender) {
 
   var r = confirm("Are you sure you want to delete this playlist?");
   if (r) {
-    var toRemove = sender.parentNode.parentNode;
+    var toRemove = sender.parentNode.parentNode.parentNode;
+    var pID = parseInt(toRemove.getAttribute("name"));
+    console.log(pID);
+    var url = "deletePlaylist.php";
+    url = url.concat("?pID=" + pID);
+    $.ajax(url);
     toRemove.parentNode.removeChild(toRemove);
   }
 }
@@ -84,34 +89,49 @@ function addNewPlaylist() {
 		return;
 	}
 
-  // Create dynamically to maintain a reference to these elements
-  var newPlaylist = document.createElement('tr');
-  newPlaylist.setAttribute('class', 'playlist');
-  newPlaylist.setAttribute('onclick', 'selectPlaylist(this);');
-  newPlaylist.setAttribute('style', 'display:none');
-  editingPlaylist = newPlaylist;
-
-  var newPlaylistName = document.createElement('td');
-  newPlaylistName.setAttribute('class', 'playlistName');
-
-  var newPlaylistP = document.createElement('p');
-  newPlaylistP.setAttribute('class', 'playlistP');
-  playlistDiv = newPlaylistP;
-
-  var editImages = document.createElement('td');
-  editImages.innerHTML = "<p><img src=\"images/edit.png\" onclick=\"editPlaylist(this);\" alt=\"edit\"/><img src=\"images/delete-icon.png\" onclick=\"deletePlaylist(this);\" alt=\"delete\"/></p>";
-
-  newPlaylistName.appendChild(newPlaylistP);
-  newPlaylist.appendChild(newPlaylistName);
-  newPlaylist.appendChild(editImages);
-
-  $("#user_playlists").append(newPlaylist);
-  $("#user_playlists").append(inputPlaylist);
-
-  inputPlaylistRef = $("#playlistInputRow")[0];
-  playlistInput = $('.playlistInput')[0];
-
   var url = "addPlaylist.php";
   url = url.concat("?name= ");
-  $.ajax(url);
+  $.ajax({
+    url: url,
+    /*'/addPlaylist.php',
+    data: {
+      name: ' '
+    },
+    type: 'POST',*/
+    async: false,
+    success: function(response) {
+      var obj = JSON.parse(response);
+      // Create dynamically to maintain a reference to these elements
+      var newPlaylist = document.createElement('tr');
+      newPlaylist.setAttribute('class', 'playlist');
+      newPlaylist.setAttribute('onclick', 'selectPlaylist(this);');
+      newPlaylist.setAttribute('style', 'display:none');
+      newPlaylist.setAttribute('onmouseover', 'hoverIn(this);');
+      newPlaylist.setAttribute('onmouseout', 'hoverOut(this);');
+      newPlaylist.setAttribute('name', obj);
+      editingPlaylist = newPlaylist;
+      playlistEditingID = obj;
+
+      var newPlaylistName = document.createElement('td');
+      newPlaylistName.setAttribute('class', 'playlistName');
+
+      var newPlaylistP = document.createElement('p');
+      newPlaylistP.setAttribute('class', 'playlistP');
+      playlistDiv = newPlaylistP;
+
+      var editImages = document.createElement('td');
+      editImages.innerHTML =
+        "<p><img src=\"images/edit.png\" onclick=\"editPlaylist(this);\" alt=\"edit\"/><img src=\"images/delete-icon.png\" onclick=\"deletePlaylist(this);\" alt=\"delete\"/></p>";
+
+      newPlaylistName.appendChild(newPlaylistP);
+      newPlaylist.appendChild(newPlaylistName);
+      newPlaylist.appendChild(editImages);
+
+      $("#user_playlists").append(newPlaylist);
+      $("#user_playlists").append(inputPlaylist);
+
+      inputPlaylistRef = $("#playlistInputRow")[0];
+      playlistInput = $('.playlistInput')[0];
+    }
+  });
 }

@@ -71,28 +71,24 @@
 		          while ($row=mysql_fetch_assoc($sql)) {
                 $playlist_name = $row['name'];
                 $pID = $row['pID'];
-
                 $playlist_query =
-                  "SELECT
-                    sID
-                  FROM
-                    PlaylistHasSong
-                  WHERE
-                    pID='" .mysql_real_escape_string($pID). "'";
+                  "SELECT *
+                  FROM  `PlaylistHasSong`
+                  WHERE  `pID` =" .mysql_real_escape_string($pID);
                 $playlist_songs_results = mysql_query($playlist_query);
                 $playlist_songs = array();
                 $song_index = 0;
 
                 while ($song = mysql_fetch_assoc($playlist_songs_results)) {
                   $to_print = $song['sID'];
-                  print("<h id=\"test_printing\"> $to_print </h>");
-                  $playlist_songs[$song_index] = array(
+                  print("<h> $to_print </h>");
+                  $playlist_songs[$song_index] = $to_print;
+                  /*array(
                     'sID' => $song['sID'],
-                  );
+                  );*/
                   $song_index++;
                 }
-                $song_to_print = $playlist_songs[0];
-                print("<h id=\"test_printing\"> $song_to_print` </h>");
+
                 $playlists[$pID] = $playlist_songs;
                 $playlist_index++;
                 print(
@@ -117,22 +113,27 @@
               }
 					?>
           </table>
-          <script type="text/javascript">
+          <!--script type="text/javascript"-->
 
             <?php
               //Prints the playlist IDs and
-               print("var playlists_printed = \"");
+               print("<li> var playlists_printed = \"");
                foreach ($playlists as $pID => $z_playlist_songs) {
-                 print("$pID: $z_playlist_songs");
-                 foreach ($z_playlists_songs as $xyz => $xyz_playlist_song) {
-                   print("$xyz <> $xyz_playlist_song <>");
+                 // print("$pID: ");
+               }
+
+               foreach ($playlists as $pID => $z_playlist_songs) {
+                 $imploded = implode("|", $z_playlist_songs);
+                 print("$pID: ");
+                 foreach ($z_playlists_songs as $index_ => $xyz_playlist_song) {
+                   print("$xyz_playlist_song <>");
                  }
                }
-               print("\";");
+               print("\"; </li>");
             ?>
-            console.log("Hitting the playlist printing");
-            console.log(playlists_printed);
-          </script>
+            <!--console.log("Hitting the playlist printing");
+            console.log(playlists_printed);-->
+          <!--/script-->
 				</ul>
 				</div>
 			</div>

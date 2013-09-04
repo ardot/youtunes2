@@ -8,7 +8,6 @@
 		exit();
 	}
 
-  print("<h> hittin this </h>");
   $db = mysql_connect("localhost","root", "root");
 
 	//check to see if the database was connected to successfully
@@ -39,20 +38,17 @@
 			(NULL,
 			'" .mysql_real_escape_string($name). "');";
 
-  print("<h> $query </h>");
 	mysql_query($query);
 
 	$last_pid_query = "SELECT LAST_INSERT_ID();";
 	$last_id = mysql_query($last_pid_query);
 	$last_int_id = 0;
 
-  print("<h> $last_id </h>");
 
 	while($row=mysql_fetch_array($last_id)){
 		$last_int_id = $row[0];
 	}
 
-  print("<h> $last_int_id </h>");
 	$has_playlist_insert =
 		"INSERT INTO `youtunes`.`UserHasPlaylist`
 			(`uID`,
@@ -66,4 +62,7 @@
   $user_has_result = mysql_query($has_playlist_insert);
 
 	mysql_close($db);
+
+  echo json_encode($last_int_id);
+
 ?>

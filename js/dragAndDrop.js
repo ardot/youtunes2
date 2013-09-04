@@ -1,6 +1,22 @@
+var isDown = false;   // Tracks status of mouse button
+var playlistOver = null;
+
+function hoverIn(sender) {
+  console.log(isDown);
+  console.log(clickedOnSong);
+  if(isDown && clickedOnSong != null) {        // Only change css if mouse is down
+    sender.style.border = "thin solid";
+    playlistOver = sender;
+  }
+}
+
+function hoverOut(sender) {
+  console.log("and out");
+  sender.style.border = "none" ;
+  playlistOver = null;
+}
+
 $(document).ready(function(){
-  var isDown = false;   // Tracks status of mouse button
-  var playlistOver = null;
 
   $(document).mousedown(function() {
     isDown = true;      // When mouse goes down, set isDown to true
@@ -15,16 +31,15 @@ $(document).ready(function(){
     playlistOver = null;
   });
 
-  $(".playlist").mouseover(function(){
+  $(".playlist").mouseover(function() {
     if(isDown && clickedOnSong != null) {        // Only change css if mouse is down
-       $(this).css({border:"thin solid"});
-       playlistOver = $(this);
+      $(this).css({border:"thin solid"});
+      playlistOver = $(this);
     }
   });
 
-  $(".playlist").mouseout(function(){
+  $(".playlist").mouseout(function() {
     $(this).css({border:"none"});
     playlistOver = null;
   });
-
 });
