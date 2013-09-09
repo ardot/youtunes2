@@ -112,6 +112,7 @@ function addNewPlaylist() {
       editingPlaylist = newPlaylist;
       playlistEditingID = obj;
 
+      playlist_to_song_assoc[obj] = new Array();
       var newPlaylistName = document.createElement('td');
       newPlaylistName.setAttribute('class', 'playlistName');
 

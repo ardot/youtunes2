@@ -10,16 +10,17 @@ function filterTable(term, table) {
 
 	//console.log("Terms: " + terms + "\n\n");
 	var counter = 0;
-	
+
 	for (var r = 1; r < table.rows.length; r++) {
 		var display = '';
 		for (var i = 0; i < terms.length; i++) {
-			//console.log("Checking this: " + table.rows[r].innerHTML.replace(/<[^>]+>/g, "").toLowerCase());
-			if (table.rows[r].innerHTML.replace(/<[^>]+>/g, "").toLowerCase()
-				.indexOf(terms[i]) < 0) {
+      if ((table.rows[r].innerHTML.replace(/<[^>]+>/g, "").toLowerCase().indexOf(terms[i]) < 0) ||
+         (selected_playlist_id  &&
+         playlist_to_song_assoc[selected_playlist_id].indexOf(table.rows[r].title) == -1))
+        {
 				display = 'none';
 			} else {
-				
+
 				var rowClass = table.rows[r].getAttribute("class");
 				if(rowClass.indexOf('evenSel') < 0 && rowClass.indexOf('oddSel') < 0){
 					//if (terms[i].length) highlight(terms[i], table.rows[r]);
@@ -28,7 +29,7 @@ function filterTable(term, table) {
 					}
 					else{
 						table.rows[r].setAttribute('class', 'even');
-					}	
+					}
 				}
 				else{
 					if((counter % 2) == 0){

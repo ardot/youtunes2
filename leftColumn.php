@@ -128,9 +128,6 @@
                print("var playlists_printed = \"");
                print(implode("<>", array_keys($playlists)));
                print("\";");
-               /*foreach ($playlists as $pID => $z_playlist_songs) {
-                 print("$pID: ");
-               }*/
 
                print("var playlists_songs_printed = \"");
 

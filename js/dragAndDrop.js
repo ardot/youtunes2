@@ -25,7 +25,21 @@ $(document).ready(function(){
     isDown = false;    // When mouse goes up, set isDown to false
     // if the user has dragged from a song
     if (clickedOnSong != null && playlistOver != null) {
-      console.log("Drag and drop, like a boss");
+      console.log(playlistOver);
+      if (playlistOver[0]) {
+        var pID = playlistOver[0].getAttribute('name');
+      } else {
+        var pID = playlistOver.getAttribute('name');
+      }
+      var sID = clickedOnSong.getAttribute('title');
+
+      playlist_to_song_assoc[pID].push(
+        sID
+      );
+      var url = "addSongToPlaylist.php";
+      url = url.concat("?pID=" + pID);
+      url = url.concat("&sID=" + sID);
+      $.ajax(url);
     }
     clickedOnSong = null;
     playlistOver = null;
