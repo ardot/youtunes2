@@ -81,13 +81,15 @@
 
                 while ($song = mysql_fetch_assoc($playlist_songs_results)) {
                   $to_print = $song['sID'];
-                  print("<h> $to_print </h>");
                   $playlist_songs[$song_index] = $to_print;
+
+                  // print("<h> $song_index --- $to_print </h>");
                   /*array(
                     'sID' => $song['sID'],
                   );*/
                   $song_index++;
                 }
+
 
                 $playlists[$pID] = $playlist_songs;
                 $playlist_index++;
@@ -113,27 +115,46 @@
               }
 					?>
           </table>
-          <!--script type="text/javascript"-->
-
+          <script type="text/javascript">
+            function implodeArray(text) {
+              if (text == "") {
+                return [];
+              } else {
+                return text.split("<>");
+              }
+            }
             <?php
               //Prints the playlist IDs and
-               print("<li> var playlists_printed = \"");
-               foreach ($playlists as $pID => $z_playlist_songs) {
-                 // print("$pID: ");
-               }
+               print("var playlists_printed = \"");
+               print(implode("<>", array_keys($playlists)));
+               print("\";");
+               /*foreach ($playlists as $pID => $z_playlist_songs) {
+                 print("$pID: ");
+               }*/
+
+               print("var playlists_songs_printed = \"");
 
                foreach ($playlists as $pID => $z_playlist_songs) {
-                 $imploded = implode("|", $z_playlist_songs);
-                 print("$pID: ");
-                 foreach ($z_playlists_songs as $index_ => $xyz_playlist_song) {
-                   print("$xyz_playlist_song <>");
-                 }
+                 $imploded = implode("<>", $z_playlist_songs);
+                 print("$imploded<|>");
                }
-               print("\"; </li>");
+               print("\";");
             ?>
-            <!--console.log("Hitting the playlist printing");
-            console.log(playlists_printed);-->
-          <!--/script-->
+            // parse the text printed from PHP into javascript data
+            var playlist_info_array = playlists_printed.split("<>");
+            var playlist_song_info_array = playlists_songs_printed.split("<|>");
+            playlist_song_info_array =
+              playlist_song_info_array.slice(
+                0,
+                playlist_song_info_array.length - 1);
+            playlist_song_info_array =
+              playlist_song_info_array.map(implodeArray);
+            // combine the arrays into an associative array
+            var playlist_to_song_assoc = new Object();
+            for (var i=0; i<playlist_info_array.length; i++) {
+              playlist_to_song_assoc[playlist_info_array[i]] = playlist_song_info_array[i];
+            }
+          </script>
 				</ul>
 				</div>
 			</div>
