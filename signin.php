@@ -2,6 +2,8 @@
 
 	session_start();
 
+  include 'constants.php';
+
   function encrypt_password($password, $salt) {
 		$salty = $password . $salt;
     return hash("sha256", $salty);
@@ -15,7 +17,8 @@
 		$passwd = $_POST['passwd'];
 
     // Connect to db and validate connection
-    $db = mysql_connect("localhost","root", "root");
+    $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
+
     if (!$db) {
       echo "Could not connect to database" . mysql_error();
       exit();

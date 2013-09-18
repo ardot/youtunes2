@@ -32,8 +32,12 @@
 					<table id="user_playlists" class="playlistCategoryTable">
 
           <?php
-	           session_start();
-	           $db = mysql_connect("localhost","root", "root");
+
+				    include 'constants.php';
+            session_start();
+
+            $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
+
              //check to see if the database was connected to successfully
              if (!$db) {
                 echo "Could not connect to database" . mysql_error();
@@ -49,10 +53,16 @@
 
              $query=
                 "SELECT * FROM Playlists
-                INNER JOIN (
-                (SELECT pID FROM UserHasPlaylist
-                WHERE uID=" .mysql_real_escape_string($uID). ")
-                AS T) ON Playlists.pID=T.pID";
+                  INNER JOIN (
+                    (SELECT
+                      pID
+                    FROM
+                      UserHasPlaylist
+                    WHERE
+                      uID=" .mysql_real_escape_string($uID). ")
+                  AS T)
+                  ON Playlists.pID=T.pID";
+
 		          $sql=mysql_query($query);
 
               $playlists = array();
@@ -61,25 +71,28 @@
 		          while ($row=mysql_fetch_assoc($sql)) {
                 $playlist_name = $row['name'];
                 $pID = $row['pID'];
-
-                /* $playlist_query =
-                  "SELECT sID FROM Songs
-                  INNER JOIN (
-                  (SELECT sID from PlaylistHasSong
-                  WHERE pID=" .mysql_real_escape_string($pID). ")
-                  AS T) on Songs.sID=T.sID";
+                $playlist_query =
+                  "SELECT *
+                  FROM  `PlaylistHasSong`
+                  WHERE  `pID` =" .mysql_real_escape_string($pID);
                 $playlist_songs_results = mysql_query($playlist_query);
                 $playlist_songs = array();
                 $song_index = 0;
 
                 while ($song = mysql_fetch_assoc($playlist_songs_results)) {
-                  $playlist_songs[$song_index] = array(
+                  $to_print = $song['sID'];
+                  $playlist_songs[$song_index] = $to_print;
+
+                  // print("<h> $song_index --- $to_print </h>");
+                  /*array(
                     'sID' => $song['sID'],
-                  );
+                  );*/
                   $song_index++;
                 }
+
+
                 $playlists[$pID] = $playlist_songs;
-                $playlist_index++;*/
+                $playlist_index++;
                 print(
                   "<tr name=\"$pID\" class=\"playlist\" onclick=\"selectPlaylist(this);\">
                     <td class=\"playlistName\">
@@ -103,19 +116,41 @@
 					?>
           </table>
           <script type="text/javascript">
-
+            function implodeArray(text) {
+              if (text == "") {
+                return [];
+              } else {
+                return text.split("<>");
+              }
+            }
             <?php
               //Prints the playlist IDs and
-               /*print("var playlists_printed = \"");
-               foreach ($playlists as $pID => $playlist_songs) {
-                 print("$pID: ");
-                 foreach ($playlists_songs as $sID) {
-                   print("$sID <>");
-                 }
+               print("var playlists_printed = \"");
+               print(implode("<>", array_keys($playlists)));
+               print("\";");
+
+               print("var playlists_songs_printed = \"");
+
+               foreach ($playlists as $pID => $z_playlist_songs) {
+                 $imploded = implode("<>", $z_playlist_songs);
+                 print("$imploded<|>");
                }
-               print("\";");*/
+               print("\";");
             ?>
-            // console.log(playlists_printed);
+            // parse the text printed from PHP into javascript data
+            var playlist_info_array = playlists_printed.split("<>");
+            var playlist_song_info_array = playlists_songs_printed.split("<|>");
+            playlist_song_info_array =
+              playlist_song_info_array.slice(
+                0,
+                playlist_song_info_array.length - 1);
+            playlist_song_info_array =
+              playlist_song_info_array.map(implodeArray);
+            // combine the arrays into an associative array
+            var playlist_to_song_assoc = new Object();
+            for (var i=0; i<playlist_info_array.length; i++) {
+              playlist_to_song_assoc[playlist_info_array[i]] = playlist_song_info_array[i];
+            }
           </script>
 				</ul>
 				</div>

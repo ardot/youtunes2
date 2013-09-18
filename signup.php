@@ -1,7 +1,8 @@
 <?php
 	session_start();
+	include 'constants.php';
 
-	function encrypt_password($password, $salt) {
+  function encrypt_password($password, $salt) {
 		$salty = $password . $salt;
     return hash("sha256", $salty);
 	}
@@ -20,7 +21,7 @@
       isset($_POST['passwd_new']) &&
       isset($_POST['passwdconf_new'])) {
 
-		$db = mysql_connect("localhost", "root", "root");
+    $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
 		// check to see if the database was connected to successfully
     if (!$db) {
       echo "Could not connect to database" . mysql_error();

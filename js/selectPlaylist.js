@@ -1,5 +1,6 @@
 var playlists = $('.playlist');
 var selected = playlists[0];
+var selected_playlist_id = null;
 playlists[0].setAttribute("id", "selectedHeader");
 console.log(playlists);
 console.log(selected);
@@ -29,15 +30,9 @@ function selectPlaylist(sender){
  * TODO: Implement this!
  */
 function filterSongs(sender){
-  var pID = sender.getAttribute('name');
-
-  if (!pID) {
-    // pID will be null for the main "Library"
-    console.log("Reveal all songs");
-  } else {
-    var playlist_songs = playlists[pID];
-    console.log(playlist_songs);
-  }
-
+  selected_playlist_id = sender.getAttribute('name');
+  var term = document.getElementById("searc");
+  var table = document.getElementById("songTable");
+  filterTable(term, table);
 }
 

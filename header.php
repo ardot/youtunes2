@@ -1,3 +1,8 @@
+<!-- Link to the Favicon -->
+<link rel="icon"
+      type="image/x-icon"
+      href="images/favicon.ico"/>
+
 <div id="header">
 
 	<?php

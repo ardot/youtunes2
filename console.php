@@ -188,7 +188,9 @@
 
 
 					<?php
-						$db = mysql_connect("localhost","root", "root");
+            include 'constants.php';
+
+            $db = mysql_connect("localhost", DB_HOST, DB_USERNAME);
     				if (!$db) {
        				echo "Could not connect to database" . mysql_error();
         			exit();
@@ -534,18 +536,30 @@
 					function deleteSong(sender){
 
 						console.log(sender.parentNode.parentNode);
-
-						var r = confirm("Are you sure you want to delete this song?");
+            if (selected_playlist_id) {
+						  var r = confirm("Are you sure you want to remove this song from the playlist?");
+            } else {
+						  var r = confirm("Are you sure you want to delete this song?");
+            }
 
 						if (r==true){
  							var to_remove = sender.parentNode.parentNode.parentNode;
  							var sID = to_remove.getAttribute( "title");
 
- 							console.log(to_remove);
- 							var url = "delete.php";
-							url = url.concat("?sID=" + sID);
-							console.log(url);
-							$.get(url);
+              if (selected_playlist_id) {
+                var url = "deleteSongFromPlaylist.php";
+                url = url.concat("?sID=" + sID);
+                url = url.concat("&pID=" + selected_playlist_id);
+
+                var pl_songs  = playlist_to_song_assoc[selected_playlist_id];
+                pl_songs = pl_songs.splice((pl_songs.indexOf(sID)), 1);
+                playlist_to_song_assoc[selected_playlist_id] = pl_songs;
+                console.log(url);
+              } else {
+ 							  var url = "delete.php";
+							  url = url.concat("?sID=" + sID);
+							}
+              $.get(url);
 
  							to_remove.parentNode.removeChild(to_remove);
  							$("table").trigger("update");
