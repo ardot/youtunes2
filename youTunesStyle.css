@@ -265,6 +265,11 @@
 /*	border:2px inset;
 	border-radius:8px;*/
 }
+#loadingBar{
+  position:relative;
+  left:25%;
+  top:25%;
+}
 #progressBar{
 
 	border:solid;

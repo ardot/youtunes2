@@ -605,6 +605,13 @@
 	</body>
 </html>
 
+  <script type="text/javascript">
+
+    table = document.getElementById("songTable");
+    table.setAttribute("style", "");
+
+  </script>
 <!--Body must be initialized to run this script! -->
 <script src="js/dynamic_resize.js" type="text/javascript"></script>
 <script src="js/selectPlaylist.js" type="text/javascript"></script>
+

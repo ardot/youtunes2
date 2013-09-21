@@ -66,8 +66,7 @@
 <!--body-->
 <!--div class="demo"-->
 
-
-	<table class="tablesorter filterable more" id="songTable">
+	<table style="display:none" class="tablesorter filterable more" id="songTable">
 		<thead id="songTableHead" class="playlistCategory" style="position:fixed;margin-left:-22px;border-bottom:solid; width:100%;  border-width:thin; border-color:gray">
 			<tr>
 				<th width="20px" style="min-width:20px"></th>
@@ -191,5 +190,3 @@
 		</tbody>
 	</table>
 
-<!--/div-->
-<!--/body></html-->
