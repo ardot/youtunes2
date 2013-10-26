@@ -1,5 +1,14 @@
 <?php
-	include 'constants.php';
+
+  session_start();
+  include 'constants.php';
+
+
+  $uid = $_SESSION['uid'];
+  $username = $_SESSION['username'];
+
+  print("<h> $uid </h>");
+  print("<h> $username </h>");
 
   // User must have a valid session to proceed
 	if(!isset($_SESSION['uid'])){

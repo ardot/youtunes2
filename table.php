@@ -69,7 +69,7 @@
 
 	<table style="display:none" class="tablesorter filterable more" id="songTable">
 		<thead id="songTableHead" class="playlistCategory" style="position:fixed;margin-left:-14px;border-bottom:solid; width:100%;  border-width:thin; border-color:gray">
-			<tr>
+		<tr>
 				<th width="20px" style="min-width:20px"></th>
 				<th width="300px" style="min-width:300px">Name</th>
 				<th width="60px" style="min-width:60px">Time</th>
@@ -191,5 +191,3 @@
 		</tbody>
 	</table>
 
-<!--/div-->
-<!--/body></html-->
