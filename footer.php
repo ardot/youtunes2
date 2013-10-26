@@ -2,13 +2,13 @@
 	<div id="options">
 		<ul id="opt">
 			<li id="addPL" class="button">
-				<img src="images/addPL.png" alt="some_text" onclick="addNewPlaylist()" />
+				<img height="30" src="images/addPL.png" alt="some_text" onclick="addNewPlaylist()" />
 			</li>
 			<li id="shuffle" class="button">
-				<img src="images/shuffle50.png" alt="some_text" onclick="setShuffle(this)" />
+				<img height="30" src="images/shuffle50.png" alt="some_text" onclick="setShuffle(this)" />
 			</li>
 			<li id="loop" class="button">
-				<img src="images/loop50.png" alt="some_text" onclick="setLoop(this)"/>
+				<img height="30" src="images/loop50.png" alt="some_text" onclick="setLoop(this)"/>
 			</li>
 		</ul>
 	</div>
@@ -31,7 +31,7 @@
 					</div>
 				</div>	");
 		 print("<div id=\"smiley\">
-              <img id=\"smileyImage\" src=\"images/smiley3.png\" alt=\"smiley\"/>
+              <img id=\"smileyImage\" height=\"35\" src=\"images/smiley3.png\" alt=\"smiley\"/>
             </div>");
     }
 	?>

@@ -1,21 +1,21 @@
 /*function initialize(){*/
 	/*var playlistPane = document.getElementById("playlistScroll");
 	*/
-	
+
 	setInterval(resize, 10);
-	
+
 /*}*/
 
 
 function resize(){
-	
+
 	var playlistPane = document.getElementById("playlistScroll");
 	var libraryPane = document.getElementById("libraryContainer");
-	
+
 	var docHeight = getDocHeight();
-	
-	playlistPane.style.height = (docHeight - 200).toString() + "px";
-	libraryPane.style.height = (docHeight - 200).toString() +"px";
+
+	playlistPane.style.height = (docHeight - 160).toString() + "px";
+	libraryPane.style.height = (docHeight - 160).toString() +"px";
 }
 
 function getDocHeight() {

@@ -535,7 +535,6 @@
 
 					function deleteSong(sender){
 
-						console.log(sender.parentNode.parentNode);
             if (selected_playlist_id) {
 						  var r = confirm("Are you sure you want to remove this song from the playlist?");
             } else {
@@ -550,11 +549,11 @@
                 var url = "deleteSongFromPlaylist.php";
                 url = url.concat("?sID=" + sID);
                 url = url.concat("&pID=" + selected_playlist_id);
-
                 var pl_songs  = playlist_to_song_assoc[selected_playlist_id];
-                pl_songs = pl_songs.splice((pl_songs.indexOf(sID)), 1);
+                console.log("PL Songs Before: " + pl_songs);
+                pl_songs.splice((pl_songs.indexOf(sID)), 1);
+                console.log("PL Songs After: " + pl_songs);
                 playlist_to_song_assoc[selected_playlist_id] = pl_songs;
-                console.log(url);
               } else {
  							  var url = "delete.php";
 							  url = url.concat("?sID=" + sID);
@@ -604,6 +603,11 @@
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript">
+  table = document.getElementById("songTable");
+  table.setAttribute("style", "");
+</script>
 
 <!--Body must be initialized to run this script! -->
 <script src="js/dynamic_resize.js" type="text/javascript"></script>

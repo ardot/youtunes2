@@ -9,7 +9,7 @@
 
 		if(isset($_SESSION['username'])){
 			$name = $_SESSION['username'];
-			print("<h style=\"position:fixed; left:100%; margin-left:-220px; top:2px;\">
+			print("<h style=\"position:fixed; font-size:90%; left:100%; margin-left:-220px; top:2px;\">
 				Welcome $name! |
 				<a href=\"logout.php\">
 					logout
@@ -24,17 +24,20 @@
 				<div id="playControls">
 					<ul id="navi">
 						<li id="back">
-							<img class="buttons" src="images/back2.png" alt="some_text" onclick="back()"/>
+							<img class="buttons" height="30" src="images/back2.png" alt="some_text" onclick="back()"/>
 						</li>
 						<li id="play" >
-							<img class="buttons" id="playImage" src="images/play2.png" onclick="pause(this)" alt="some_text" id="playButton"/>
+							<img class="buttons" height="51" id="playImage" src="images/play2.png" onclick="pause(this)" alt="some_text" id="playButton"/>
 						</li>
 						<li id="forward">
-							<img class="buttons" src="images/forward2.png" alt="some_text" onclick="forward()"/>
+							<img class="buttons" height="30" src="images/forward2.png" alt="some_text" onclick="forward()"/>
 						</li>
 					</ul>
 				</div>
 
+        <!--div id="loading" stype="position:absolute">
+					<img class="buttons" height="100" src="images/loading.gif" alt="some_text" onclick="forward()"/>
+        </div-->
 				<div id="playerConsole">
 					<!--div id="videoDiv"></div-->
 					<!--div id="videoDiv"></div-->

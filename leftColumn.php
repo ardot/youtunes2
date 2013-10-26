@@ -5,7 +5,7 @@
       style="margin:0px;
       padding:0px;
       height:500px;
-      width:227px;
+      width:200px;
       font:16px/26px Georgia, Garamond, Serif;
       overflow:auto;">
 				<ul id="playlista">
