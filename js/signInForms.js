@@ -37,11 +37,18 @@ function initialize(){
 	passwdNew.onclick = changePasswdNew;
 	passwdNewConf.onclick = changePasswdNewConf;
 
-    username1.onkeydown = changeUsername1;
+  username1.onkeydown = changeUsername1;
 	passwd.onkeydown = changePassword;
 	usernameNew.onkeydown = changeUsernameNew;
 	passwdNew.onkeydown = changePasswdNew;
 	passwdNewConf.onkeydown = changePasswdNewConf;
+
+  username1.onfocus = changeUsername1;
+	passwd.onfocus = changePassword;
+	usernameNew.onfocus = changeUsernameNew;
+	passwdNew.onfocus = changePasswdNew;
+	passwdNewConf.onfocus = changePasswdNewConf;
+
 
 	/*
 	username1.onkeypress = inputSet(1);
