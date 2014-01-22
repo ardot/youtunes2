@@ -296,7 +296,7 @@ function SearchYouTube(query) {
 
                 row += "<div class='search_item'>";
                 row += "<table width='100%'>";
-                row += "<tr>";
+                row += "<tr class=\"searchResult\">";
                 row += "<td vAlign='top' align='left'>";
                 row += "<a href='#' ><img width='120px' height='80px' src=" + data.feed.entry[i].media$group.media$thumbnail[0].url + " /></a>";
                 row += "</td>";

@@ -67,7 +67,7 @@
 	border-width:thin;
 	border-color:gray;
 	position:relative;
-	top:-14px;
+	
 }
 #ytsearch{
 	position:relative;
@@ -88,8 +88,8 @@
 }
 
 .ytopen{
-	margin-top:-520px;
-	height:520px;
+	margin-top:-486px;
+	height:486px;
 	/*margin-top:-95px;
 	height:160px*/
 }
@@ -520,6 +520,13 @@
 	background-color:#3366FF;
 	min-width:200px;
 		font-size:120%;
+}
+
+tr.searchResult:hover{
+  cursor:pointer;
+  border:solid;
+  border-color:rgba(100,100,100,.5);
+  border-radius:8px;
 }
 
 .songListing{

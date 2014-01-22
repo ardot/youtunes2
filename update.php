@@ -28,10 +28,10 @@
 					(NULL ,  'Tim',  'Lenardo')");*/
 
 
-	/*if((!isset($_GET['sID'])) || (!isset($_GET['name'])) || (!isset($_GET['artist'])) || (!isset($_GET['album'])) || (!isset($_GET['genre']))){
+	if((!isset($_GET['sID'])) || (!isset($_GET['name'])) || (!isset($_GET['artist'])) || (!isset($_GET['album'])) || (!isset($_GET['genre']))){
 		echo "Invalid call to this function";
 		exit();
-	}*/
+	}
 
 
 	$sID = $_GET['sID'];

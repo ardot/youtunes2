@@ -8,7 +8,21 @@
     <script type="text/javascript" src="js/ytsearch.js"></script>
     <script type="text/javascript" src="js/apprise/apprise-1.5.min.js"></script>
     <script type="text/javascript" src="js/dragAndDrop.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <meta name="Keywords" content="Streaming, music, free, online, youtube, playlists, youtunes, no ads, youtunesmusic">
+    <meta name="Description" content="Stream ad-free music online, directly through YouTube videos!">
+    <meta property="og:image" content="http://www.youtunesmusic.net/youtunes.png" />
+    <title> Welcome to YouTunes - Free Music Streaming Online </title>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-34594746-2', 'youtunesmusic.net');
+      ga('send', 'pageview');
+
+    </script>
     </head>
     <script type="text/javascript">
       var xmlHttp = null;

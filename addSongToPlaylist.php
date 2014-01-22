@@ -8,8 +8,9 @@
 		echo "Not ogged in!";
 		exit();
 	}
+  include 'constants.php';
 
-  $db = mysql_connect("localhost","root", "root");
+  $db = mysql_connect("localhost",DB_HOST,DB_USERNAME);
 
 	//check to see if the database was connected to successfully
     if (!$db){
