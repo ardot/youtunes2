@@ -451,7 +451,15 @@
    								else if (shuffle == true) {
 
    									var nodes = playing.parentNode.childNodes;
-   									var nextSong=Math.floor(Math.random() * Object.keys(index_map).length);
+
+                    var nextSong=Math.floor(Math.random() * Object.keys(index_map).length);
+                    var displayValue = nodes[nextSong + 2].style.display;
+
+                    while (displayValue == 'none') {
+                      var nextSong=Math.floor(Math.random() * Object.keys(index_map).length);
+                      var displayValue = nodes[nextSong + 2].style.display;
+                    }
+
                     console.log(nodes[nextSong + 2].style.display);
    									play(nodes[nextSong + 2]);
    								}

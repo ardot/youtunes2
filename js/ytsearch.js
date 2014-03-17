@@ -17,7 +17,7 @@ function secondstotime(secs)
 
 function SearchiTunes(sender) {
 
-	var stop_list = ['-', 'lyrics', '&amp;', 'ft', 'feat', '+', '&', '.', ',', '/', 'w/', 'official music video', 'music video', '"'];//, 'in', 'the', 'description', 'full', 'studio', 'version', 'live', 'on'];
+	var stop_list = ['-', 'with lyrics', 'lyrics', '&amp;', ' ft', 'feat', '+', '&', '.', ',', 'w/', '/', 'official music video', 'music video', '"'];//, 'in', 'the', 'description', 'full', 'studio', 'version', 'live', 'on'];
 	var open_types = ['[', '{', '('];
 	var close_types = [']', '}', ')'];
 
